@@ -79,7 +79,7 @@ class ViewController: NSViewController {
         
         let window = NSWindow(contentRect: NSRect(x: 200, y: 800, width: 300, height: 300), styleMask: style, backing: .buffered, defer: true, screen: nil)
         window.title = "新创建的窗口"
-        window.backgroundColor = .red
+        window.backgroundColor = .green
         window.standardWindowButton(.documentVersionsButton)?.image = NSImage(named: "c_enntrance_home_banner")
         
         // 显示窗口
