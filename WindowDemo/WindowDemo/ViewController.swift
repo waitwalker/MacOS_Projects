@@ -89,9 +89,22 @@ class ViewController: NSViewController {
         window.center()
         
         
+        let contentView = NSView(frame: window.frame)
+        
+        contentView.layer?.backgroundColor = .black
+        
+        window.contentView = contentView
+        
+        
+        
+        
         let btn:NSButton = NSButton(title: "关闭", target: self, action: #selector(windowButtonAction))
         btn.frame = NSRect(x: 100, y: 100, width: 100, height: 100)
-        window.contentView = btn
+        btn.layer?.backgroundColor = NSColor.brown.cgColor
+        btn.layer?.borderWidth = 5.0
+        btn.layer?.borderColor = NSColor.cyan.cgColor
+        
+        contentView.addSubview(btn)
         
         self.window = window
     }
