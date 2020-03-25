@@ -77,7 +77,7 @@ class ViewController: NSViewController {
         
         let style:NSWindow.StyleMask = [.titled,.closable,.resizable,.miniaturizable]
         
-        let window = NSWindow(contentRect: NSRect(x: 200, y: 800, width: 300, height: 300), styleMask: style, backing: .buffered, defer: true, screen: nil)
+        let window = NSWindow(contentRect: NSRect(x: 0, y: 0, width: 1500, height: 1500), styleMask: style, backing: .buffered, defer: true, screen: nil)
         window.title = "新创建的窗口"
         window.backgroundColor = .green
         window.standardWindowButton(.documentVersionsButton)?.image = NSImage(named: "c_enntrance_home_banner")
@@ -88,23 +88,39 @@ class ViewController: NSViewController {
         // 窗口居中
         window.center()
         
-        
+        // window contentView
         let contentView = NSView(frame: window.frame)
-        
-        contentView.layer?.backgroundColor = .black
-        
         window.contentView = contentView
         
+        // ScrollView
+        let scrollView:NSScrollView = NSScrollView(frame: window.contentView!.frame)
+        scrollView.hasVerticalScroller = true
+        scrollView.hasHorizontalScroller = true
+        let image = NSImage(named: "c_enntrance_home_banner")
+        let imageView = NSImageView(frame: NSRect(x: 0, y: 50, width: 300, height: 300))
+        imageView.setFrameSize(image!.size)
+        imageView.image = image
+        scrollView.addSubview(imageView)
         
         
         
-        let btn:NSButton = NSButton(title: "关闭", target: self, action: #selector(windowButtonAction))
-        btn.frame = NSRect(x: 100, y: 100, width: 100, height: 100)
-        btn.layer?.backgroundColor = NSColor.brown.cgColor
-        btn.layer?.borderWidth = 5.0
-        btn.layer?.borderColor = NSColor.cyan.cgColor
+        let imageView2 = NSImageView(frame: NSRect(x: 0, y: 350, width: 300, height: 300))
+        imageView2.image = image
+        scrollView.documentView = imageView2
+        scrollView.addSubview(imageView2)
+        contentView.addSubview(scrollView)
         
-        contentView.addSubview(btn)
+        
+        
+        
+        
+//        let btn:NSButton = NSButton(title: "关闭", target: self, action: #selector(windowButtonAction))
+//        btn.frame = NSRect(x: 100, y: 100, width: 100, height: 100)
+//        btn.layer?.backgroundColor = NSColor.brown.cgColor
+//        btn.layer?.borderWidth = 5.0
+//        btn.layer?.borderColor = NSColor.cyan.cgColor
+//
+//        contentView.addSubview(btn)
         
         self.window = window
     }
