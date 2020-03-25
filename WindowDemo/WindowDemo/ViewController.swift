@@ -24,9 +24,17 @@ class ViewController: NSViewController {
         button.action = #selector(buttonAction)
         self.view.addSubview(button)
         
+        setupNotification()
         
     }
     
+    func setupNotification() -> Void {
+        NotificationCenter.default.addObserver(self, selector: #selector(notKeyWindowAction), name: NSWindow.didResignKeyNotification, object: nil)
+    }
+    
+    @objc func notKeyWindowAction() -> Void {
+        print("当前窗口不再是key window了")
+    }
     
     @objc func buttonAction() -> Void {
         print("按钮点击了");
