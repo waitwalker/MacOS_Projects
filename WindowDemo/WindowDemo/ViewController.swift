@@ -108,6 +108,34 @@ class ViewController: NSViewController {
         imageView2.image = image
         scrollView.documentView = imageView2
         scrollView.addSubview(imageView2)
+        
+        let imageView3 = NSImageView(frame: NSRect(x: 0, y: 650, width: 300, height: 300))
+        imageView3.setFrameSize(image!.size)
+        imageView3.image = image
+        scrollView.addSubview(imageView3)
+        
+        let imageView4 = NSImageView(frame: NSRect(x: 0, y: 950, width: 300, height: 300))
+        imageView4.setFrameSize(image!.size)
+        imageView4.image = image
+        scrollView.addSubview(imageView4)
+        
+        let imageView5 = NSImageView(frame: NSRect(x: 0, y: 1250, width: 300, height: 300))
+        imageView5.setFrameSize(image!.size)
+        imageView5.image = image
+        scrollView.addSubview(imageView5)
+        
+        let imageView6 = NSImageView(frame: NSRect(x: 0, y: 1550, width: 300, height: 300))
+        imageView6.setFrameSize(image!.size)
+        imageView6.image = image
+        scrollView.addSubview(imageView6)
+        
+        let imageView7 = NSImageView(frame: NSRect(x: 0, y: 1850, width: 300, height: 300))
+        imageView7.setFrameSize(image!.size)
+        imageView7.image = image
+        scrollView.addSubview(imageView7)
+        
+        
+        
         contentView.addSubview(scrollView)
         
         
