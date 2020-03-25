@@ -75,7 +75,7 @@ class ViewController: NSViewController {
          public static var hudWindow: NSWindow.StyleMask { get }
          */
         
-        let style:NSWindow.StyleMask = .titled
+        let style:NSWindow.StyleMask = [.titled,.closable,.resizable,.miniaturizable]
         
         let window = NSWindow(contentRect: NSRect(x: 200, y: 800, width: 300, height: 300), styleMask: style, backing: .buffered, defer: true, screen: nil)
         window.title = "新创建的窗口"
