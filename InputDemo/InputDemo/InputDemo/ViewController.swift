@@ -51,6 +51,8 @@ class ViewController: NSViewController {
         self.view.addSubview(passwordTextField)
         
         loginButton = NSButton(title: "登录", target: self, action: #selector(loginButtonAction(button:)))
+        loginButton.setButtonType(.pushOnPushOff)
+        loginButton.bezelStyle = .rounded
         self.view.addSubview(loginButton)
     }
     
