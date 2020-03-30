@@ -18,14 +18,6 @@ class ViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let collectionLayout:NSCollectionViewFlowLayout = NSCollectionViewFlowLayout()
-        
-        collectionView = NSCollectionView(frame: self.view.bounds)
-        collectionView.register(MTTCollectionViewItem.self, forItemWithIdentifier: NSUserInterfaceItemIdentifier(rawValue: kReusedItemId))
-        collectionView.collectionViewLayout = collectionLayout
-        self.view.addSubview(collectionView)
-        
         dataSource = [
             ["title":"二中"],
             ["title":"三中"],
@@ -34,7 +26,16 @@ class ViewController: NSViewController {
             ["title":"八中"],
             ["title":"九中"],
         ]
-        collectionView.reloadData()
+        
+        
+        let collectionLayout:NSCollectionViewFlowLayout = NSCollectionViewFlowLayout()
+        
+        collectionView = NSCollectionView(frame: self.view.bounds)
+        collectionView.register(MTTCollectionViewItem.self, forItemWithIdentifier: NSUserInterfaceItemIdentifier(rawValue: kReusedItemId))
+        collectionView.collectionViewLayout = collectionLayout
+        collectionView.dataSource = self
+        collectionView.content = dataSource
+        self.view.addSubview(collectionView)
         
     }
     
@@ -50,19 +51,20 @@ class ViewController: NSViewController {
 }
 
 extension ViewController:NSCollectionViewDataSource {
-    func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
-        let item = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: kReusedItemId), for: indexPath) as! MTTCollectionViewItem
-        let dict:[String:String] = dataSource[indexPath.item]
-        item.name = dict["title"]
-        return item
-    }
     
     func numberOfSections(in collectionView: NSCollectionView) -> Int {
         return 1
     }
     
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 30
+        return 5
+    }
+    
+    func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
+        let item = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: kReusedItemId), for: indexPath) as! MTTCollectionViewItem
+        let dict:[String:String] = dataSource[indexPath.item]
+        item.name = dict["title"]
+        return item
     }
 }
 
