@@ -25,11 +25,15 @@ class ViewController: NSViewController {
         scrollView.focusRingType = .none
         scrollView.autohidesScrollers = true
         scrollView.borderType = .noBorder
-        scrollView.documentView = self.collectionView
+        scrollView.contentView = self.clipView
         return scrollView
     }()
     
-    
+    lazy var clipView:NSClipView = {
+        let clip = NSClipView()
+        clip.documentView = self.collectionView
+        return clip
+    }()
     
     lazy var collectionView: NSCollectionView = {
         let view = NSCollectionView()
@@ -46,8 +50,7 @@ class ViewController: NSViewController {
     
     lazy var flowLayout: NSCollectionViewFlowLayout = {
         let layout = NSCollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        layout.itemSize = NSSize(width: 40, height: 40)
+        layout.scrollDirection = .vertical
         layout.sectionInset = self.sectionInset
         layout.minimumInteritemSpacing = 10
         layout.minimumLineSpacing = 10
@@ -56,6 +59,9 @@ class ViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        collectionView.frame = self.view.bounds
+        clipView.frame = self.view.bounds
+        
         scrollView.frame = self.view.bounds
         self.view.addSubview(scrollView)
         self.updateContent()
@@ -86,6 +92,10 @@ class ViewController: NSViewController {
        
         
         collectionView.reloadData()
+        
+        if let contentSize = self.collectionView.collectionViewLayout?.collectionViewContentSize {
+          self.collectionView.setFrameSize(contentSize)
+        }
         
         
         
