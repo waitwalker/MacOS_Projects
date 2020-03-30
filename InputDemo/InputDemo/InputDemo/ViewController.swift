@@ -11,14 +11,13 @@ import SnapKit
 
 class ViewController: NSViewController {
 
-    var accountLabel:NSText!
+    var qrLabel:NSTextField!
+    
     var accountTextField:NSTextField!
     
-    var passwordLabel:NSText!
     var passwordTextField:NSTextField!
     
     var loginButton:NSButton!
-    
     
     
     
@@ -32,6 +31,15 @@ class ViewController: NSViewController {
     }
     
     private func setupSubviews() -> Void {
+        
+        qrLabel = NSTextField()
+        qrLabel.stringValue = "二维码"
+        qrLabel.isEditable = false
+        qrLabel.textColor = NSColor.red
+        qrLabel.font = NSFont.systemFont(ofSize: 10)
+        qrLabel.alignment = .center
+        self.view.addSubview(qrLabel)
+        
         accountTextField = NSTextField()
         accountTextField.textColor = NSColor.red
         accountTextField.placeholderString = "输入账号"
@@ -47,6 +55,12 @@ class ViewController: NSViewController {
     }
     
     private func layoutSubviews() -> Void {
+        
+        qrLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(30)
+            make.right.equalTo(-50)
+            make.height.width.equalTo(40)
+        }
         
         accountTextField.snp.makeConstraints { (make) in
             make.left.equalTo(80)
