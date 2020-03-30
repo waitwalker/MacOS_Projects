@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,7 @@
 		BF4AF6F324317FA10008B667 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4AF6F224317FA10008B667 /* ViewController.swift */; };
 		BF4AF6F524317FA30008B667 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF4AF6F424317FA30008B667 /* Assets.xcassets */; };
 		BF4AF6F824317FA30008B667 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF4AF6F624317FA30008B667 /* Main.storyboard */; };
+		BF4AF701243186280008B667 /* SecondPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4AF700243186280008B667 /* SecondPageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		BF4AF6F724317FA30008B667 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BF4AF6F924317FA30008B667 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF4AF6FA24317FA30008B667 /* InputDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = InputDemo.entitlements; sourceTree = "<group>"; };
+		BF4AF700243186280008B667 /* SecondPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondPageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 				BF4AF6F624317FA30008B667 /* Main.storyboard */,
 				BF4AF6F924317FA30008B667 /* Info.plist */,
 				BF4AF6FA24317FA30008B667 /* InputDemo.entitlements */,
+				BF4AF700243186280008B667 /* SecondPageViewController.swift */,
 			);
 			path = InputDemo;
 			sourceTree = "<group>";
@@ -84,7 +87,6 @@
 				794D7092E25FB948B3022C5F /* Pods-InputDemo.debug.xcconfig */,
 				7949B030569CE84994637FF2 /* Pods-InputDemo.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -202,6 +204,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF4AF701243186280008B667 /* SecondPageViewController.swift in Sources */,
 				BF4AF6F324317FA10008B667 /* ViewController.swift in Sources */,
 				BF4AF6F124317FA10008B667 /* AppDelegate.swift in Sources */,
 			);
