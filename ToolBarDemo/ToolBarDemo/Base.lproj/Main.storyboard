@@ -683,7 +683,7 @@
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
-                <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
+                <windowController id="B8D-0N-5wS" customClass="WindowController" customModule="ToolBarDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
@@ -702,12 +702,19 @@
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </searchFieldCell>
                                     </searchField>
+                                    <connections>
+                                        <action selector="searchAction:" target="B8D-0N-5wS" id="qdj-mq-i9H"/>
+                                    </connections>
                                 </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="C100BF2F-1B55-4071-9426-3F79E3FFCAE0" label="开始" paletteLabel="Toolbar Item" tag="-1" id="cM2-8H-bRN" userLabel="开始">
                                     <size key="minSize" width="4" height="14"/>
                                     <size key="maxSize" width="4" height="14"/>
                                 </toolbarItem>
-                                <toolbarItem implicitItemIdentifier="NSToolbarShowColorsItem" id="CsW-m5-9ak"/>
+                                <toolbarItem implicitItemIdentifier="NSToolbarShowColorsItem" id="CsW-m5-9ak">
+                                    <connections>
+                                        <action selector="colorAction:" target="B8D-0N-5wS" id="aCl-z3-hrJ"/>
+                                    </connections>
+                                </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="NSToolbarShowFontsItem" id="eBo-e9-T28"/>
                                 <toolbarItem implicitItemIdentifier="NSToolbarPrintItem" id="pSm-1K-bWq"/>
                                 <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="pQJ-pZ-DAr"/>
@@ -747,6 +754,7 @@
                         </connections>
                     </window>
                     <connections>
+                        <outlet property="toolBar" destination="WgR-Hx-QDR" id="hkN-Jl-UoV"/>
                         <segue destination="XfG-lQ-9wD" kind="relationship" relationship="window.shadowedContentViewController" id="cq2-FE-JQM"/>
                     </connections>
                 </windowController>
