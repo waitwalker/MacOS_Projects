@@ -29,6 +29,7 @@ class WindowController: NSWindowController {
     override func windowDidLoad() {
         super.windowDidLoad()
     
+        // 控制item和关闭&全屏等是否在同一行
         self.window?.titleVisibility = .hidden
         
     }
