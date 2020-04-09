@@ -49,7 +49,33 @@ class ViewController: NSViewController {
         // Update the view, if already loaded.
         }
     }
-
+    
+    // 添加一行事件
+    @IBAction func addButtonAction(_ sender: NSButton) {
+        let data = NSMutableDictionary()
+        data["name"] = ""
+        data["address"] = ""
+        self.datas.append(data)
+        
+        self.tableView.reloadData()
+        
+        // 将光标定位到当前行
+        self.tableView.editColumn(0, row: self.datas.count - 1, with: nil, select: true)
+    }
+    
+    
+    @IBAction func removeButtonAction(_ sender: NSButton) {
+        let row = self.tableView.selectedRow
+        if row < 0 {
+            return
+        }
+        
+        self.datas.remove(at: row)
+        
+        self.tableView.reloadData()
+    }
+    
+    
 
 }
 

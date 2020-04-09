@@ -802,6 +802,9 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="addButtonAction:" target="XfG-lQ-9wD" id="dk3-uW-dpP"/>
+                                </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UA3-QT-hpb">
                                 <rect key="frame" x="77" y="30" width="40" height="42"/>
@@ -813,6 +816,9 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="removeButtonAction:" target="XfG-lQ-9wD" id="9hd-0V-2Ps"/>
+                                </connections>
                             </button>
                         </subviews>
                         <constraints>
