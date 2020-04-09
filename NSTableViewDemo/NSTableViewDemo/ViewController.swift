@@ -16,7 +16,7 @@ class ViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableViewConfig()
-        
+        updateData()
     }
     
     func tableViewConfig() -> Void {
@@ -28,6 +28,9 @@ class ViewController: NSViewController {
         self.tableView.usesAlternatingRowBackgroundColors = true
         // 表格行选中样式
         self.tableView.selectionHighlightStyle = .sourceList
+        
+        self.tableView.dataSource = self
+        
     }
     
     func updateData() -> Void {
@@ -37,6 +40,8 @@ class ViewController: NSViewController {
             ["name":"park","address":"Japan","gender":"male","married":(0)],
             ["name":"Daba","address":"Russia","gender":"female","married":(1)],
         ]
+        
+        tableView.reloadData()
     }
 
     override var representedObject: Any? {
