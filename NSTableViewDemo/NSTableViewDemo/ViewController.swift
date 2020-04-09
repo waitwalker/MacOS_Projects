@@ -53,8 +53,8 @@ class ViewController: NSViewController {
     // 添加一行事件
     @IBAction func addButtonAction(_ sender: NSButton) {
         let data = NSMutableDictionary()
-        data["name"] = ""
-        data["address"] = ""
+        data["name"] = "四中"
+        data["address"] = "北京"
         self.datas.append(data)
         
         self.tableView.reloadData()
