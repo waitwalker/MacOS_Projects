@@ -827,6 +827,9 @@
                             <constraint firstAttribute="trailing" secondItem="lYX-Of-fvg" secondAttribute="trailing" constant="20" id="xk4-1E-YZH"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="fK8-LH-xDX" id="JZX-SR-WBO"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
