@@ -21,7 +21,7 @@ class ViewController: NSViewController {
     
     func tableViewConfig() -> Void {
         // 设置tableView 横竖网格线
-        self.tableView.gridStyleMask = [NSTableView.GridLineStyle.dashedHorizontalGridLineMask,NSTableView.GridLineStyle.solidVerticalGridLineMask]
+        self.tableView.gridStyleMask = [NSTableView.GridLineStyle.solidHorizontalGridLineMask,NSTableView.GridLineStyle.solidVerticalGridLineMask]
         // tableView 背景颜色
         self.tableView.backgroundColor = .blue
         // 背景颜色交替
