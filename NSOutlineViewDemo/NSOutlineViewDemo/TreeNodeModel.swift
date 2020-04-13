@@ -9,5 +9,9 @@
 import Cocoa
 
 class TreeNodeModel: NSObject {
-
+    var name:String?
+    lazy var childNodes:Array = {
+        return [TreeNodeModel]()
+    }()
+    
 }
