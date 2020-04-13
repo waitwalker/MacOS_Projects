@@ -9,7 +9,8 @@
 import Cocoa
 
 class ViewController: NSViewController {
-
+    @IBOutlet weak var treeView: NSOutlineView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

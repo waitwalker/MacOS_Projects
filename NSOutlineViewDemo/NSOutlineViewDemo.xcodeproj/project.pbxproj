@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF0C20F12443FC4100595D5E /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0C20F02443FC4100595D5E /* WindowController.swift */; };
+		BF0C20F32444019000595D5E /* TreeNodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0C20F22444019000595D5E /* TreeNodeModel.swift */; };
 		BF45AA2324401388009F50CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF45AA2224401388009F50CA /* AppDelegate.swift */; };
 		BF45AA2524401388009F50CA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF45AA2424401388009F50CA /* ViewController.swift */; };
 		BF45AA272440138B009F50CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF45AA262440138B009F50CA /* Assets.xcassets */; };
@@ -14,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BF0C20F02443FC4100595D5E /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
+		BF0C20F22444019000595D5E /* TreeNodeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeNodeModel.swift; sourceTree = "<group>"; };
 		BF45AA1F24401388009F50CA /* NSOutlineViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NSOutlineViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF45AA2224401388009F50CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF45AA2424401388009F50CA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +63,8 @@
 				BF45AA282440138B009F50CA /* Main.storyboard */,
 				BF45AA2B2440138B009F50CA /* Info.plist */,
 				BF45AA2C2440138B009F50CA /* NSOutlineViewDemo.entitlements */,
+				BF0C20F02443FC4100595D5E /* WindowController.swift */,
+				BF0C20F22444019000595D5E /* TreeNodeModel.swift */,
 			);
 			path = NSOutlineViewDemo;
 			sourceTree = "<group>";
@@ -134,6 +140,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF45AA2524401388009F50CA /* ViewController.swift in Sources */,
+				BF0C20F32444019000595D5E /* TreeNodeModel.swift in Sources */,
+				BF0C20F12443FC4100595D5E /* WindowController.swift in Sources */,
 				BF45AA2324401388009F50CA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
