@@ -18,4 +18,8 @@ class WordCountViewController: NSViewController {
         // Do view setup here.
     }
     
+    @IBAction func closeAction(_ sender: NSButton) {
+        NSApplication.shared.stopModal()
+    }
+    
 }
