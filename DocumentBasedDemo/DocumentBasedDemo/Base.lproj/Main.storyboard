@@ -305,6 +305,12 @@
                                                 </items>
                                             </menu>
                                         </menuItem>
+                                        <menuItem title="Word Count" id="yjB-eA-rff">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="buttonAction:" target="Ady-hI-5gd" id="mCo-fR-tbC"/>
+                                            </connections>
+                                        </menuItem>
                                     </items>
                                 </menu>
                             </menuItem>
