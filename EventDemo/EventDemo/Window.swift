@@ -66,4 +66,10 @@ class Window: NSWindow {
         super.rightMouseDragged(with: event)
     }
     
+    // 设置鼠标光标
+    override func cursorUpdate(with event: NSEvent) {
+        NSCursor.crosshair.set()
+        super.cursorUpdate(with: event)
+    }
+    
 }
