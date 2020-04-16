@@ -14,6 +14,7 @@
 		BFD4C1902447E7C300C1EC34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFD4C18E2447E7C300C1EC34 /* Main.storyboard */; };
 		BFD4C1992447E86D00C1EC34 /* Window.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFD4C1982447E86D00C1EC34 /* Window.xib */; };
 		BFD4C19B2447EC0D00C1EC34 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD4C19A2447EC0D00C1EC34 /* WindowController.swift */; };
+		BFD4C19D2447F97A00C1EC34 /* WordCountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD4C19C2447F97A00C1EC34 /* WordCountViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		BFD4C1922447E7C300C1EC34 /* DocumentBasedDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DocumentBasedDemo.entitlements; sourceTree = "<group>"; };
 		BFD4C1982447E86D00C1EC34 /* Window.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Window.xib; sourceTree = "<group>"; };
 		BFD4C19A2447EC0D00C1EC34 /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
+		BFD4C19C2447F97A00C1EC34 /* WordCountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCountViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				BFD4C1912447E7C300C1EC34 /* Info.plist */,
 				BFD4C1922447E7C300C1EC34 /* DocumentBasedDemo.entitlements */,
 				BFD4C19A2447EC0D00C1EC34 /* WindowController.swift */,
+				BFD4C19C2447F97A00C1EC34 /* WordCountViewController.swift */,
 			);
 			path = DocumentBasedDemo;
 			sourceTree = "<group>";
@@ -143,6 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFD4C19D2447F97A00C1EC34 /* WordCountViewController.swift in Sources */,
 				BFD4C1892447E7C100C1EC34 /* ViewController.swift in Sources */,
 				BFD4C19B2447EC0D00C1EC34 /* WindowController.swift in Sources */,
 				BFD4C1872447E7C100C1EC34 /* AppDelegate.swift in Sources */,

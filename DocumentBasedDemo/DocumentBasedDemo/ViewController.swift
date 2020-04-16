@@ -16,6 +16,17 @@ class ViewController: NSViewController {
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func buttonAction(_ sender: NSButton) {
+        let storyboard = NSStoryboard(name: "Main", bundle: nil)
+        let wordCountWindowController = storyboard.instantiateController(withIdentifier: "Word Count Window Controller") as! NSWindowController
+        if let wordCountWindow = wordCountWindowController.window {
+            let wordCountVC = wordCountWindowController.contentViewController as! WordCountViewController
+            NSApplication.shared.runModal(for: wordCountWindow)
+            wordCountWindow.close()
+        }
+        
+        
+    }
     override var representedObject: Any? {
         didSet {
         // Update the view, if already loaded.
