@@ -308,7 +308,7 @@
                                         <menuItem title="Word Count" id="yjB-eA-rff">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
-                                                <action selector="buttonAction:" target="Ady-hI-5gd" id="mCo-fR-tbC"/>
+                                                <action selector="menuItemAction:" target="Voe-Tx-rLC" id="qct-jj-TCs"/>
                                             </connections>
                                         </menuItem>
                                     </items>
