@@ -735,6 +735,17 @@
                                     <action selector="secondAction:" target="5gI-5U-AMq" id="A5C-4R-Gho"/>
                                 </connections>
                             </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cok-Cf-G0n">
+                                <rect key="frame" x="368" y="72" width="72" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Third" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xm3-qR-O71">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="ThirdAction:" target="5gI-5U-AMq" id="avm-ET-hLf"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                 </viewController>

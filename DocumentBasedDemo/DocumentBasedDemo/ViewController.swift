@@ -33,7 +33,11 @@ class ViewController: NSViewController {
         }
     }
 
-
+    @IBAction func ThirdAction(_ sender: NSButton) {
+        let thirdVC = ThirdViewController()
+        self.presentAsSheet(thirdVC)
+    }
+    
     @IBAction func secondAction(_ sender: NSButton) {
         let secondVC = SecondViewController()
         self.presentAsModalWindow(secondVC)
