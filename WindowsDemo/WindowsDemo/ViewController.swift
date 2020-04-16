@@ -18,6 +18,9 @@ class ViewController: NSViewController {
     
     @IBAction func buttonAction(_ sender: NSButton) {
         print("log 输出")
+        
+        
+        
     }
     
     override var representedObject: Any? {
