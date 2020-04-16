@@ -670,7 +670,7 @@
                 </windowController>
                 <customObject id="6f7-a7-6o1" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="31" y="296"/>
+            <point key="canvasLocation" x="27" y="440"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
@@ -717,7 +717,41 @@
                 </viewController>
                 <customObject id="2Tp-Fl-jBw" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="-50" y="862"/>
+        </scene>
+        <!--Window Controller-->
+        <scene sceneID="W4F-HP-6ZZ">
+            <objects>
+                <windowController id="6iX-zh-5Tn" sceneMemberID="viewController">
+                    <window key="window" title="Word Count" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="3C3-Zk-ZU2">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="-855" y="1261" width="480" height="270"/>
+                        <rect key="screenRect" x="-1280" y="800" width="2560" height="1417"/>
+                        <connections>
+                            <outlet property="delegate" destination="6iX-zh-5Tn" id="YVf-Kv-NTv"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="V9G-XO-a7s" kind="relationship" relationship="window.shadowedContentViewController" id="jka-7d-L6S"/>
+                    </connections>
+                </windowController>
+                <customObject id="fBy-Ng-quA" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-491" y="423"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="mS5-Hc-DwX">
+            <objects>
+                <viewController id="V9G-XO-a7s" sceneMemberID="viewController">
+                    <view key="view" id="aD0-qD-wzX">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="yyj-8p-eN5" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-473" y="1015"/>
         </scene>
     </scenes>
 </document>
