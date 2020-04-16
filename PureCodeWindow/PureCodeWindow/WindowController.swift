@@ -10,31 +10,33 @@ import Cocoa
 
 class WindowController: NSWindowController {
 
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    lazy var myWindow: NSWindow = {
+         let frame = CGRect(x: 0, y: 0, width: 400, height: 280)
+         let style : NSWindow.StyleMask = [NSWindow.StyleMask.titled,NSWindow.StyleMask.closable,NSWindow.StyleMask.resizable]
+         //创建window
+         let window = NSWindow(contentRect:frame, styleMask:style, backing:.buffered, defer:false)
+         window.isRestorable = false
+         window.title = "Code Create Window"
+         window.windowController = self
+        window.contentViewController = self.vc
+         return window
+     }()
     
-    lazy var wind: NSWindow = {
-        let style: NSWindow.StyleMask = [NSWindow.StyleMask.titled,NSWindow.StyleMask.closable,NSWindow.StyleMask.resizable]
-        let w = NSWindow(contentRect: CGRect(x: 0, y: 0, width: 500, height: 300), styleMask: style, backing: .buffered, defer: false)
-        w.windowController = self
-        w.isRestorable = false
-        w.title = "代码创建Window"
-        return w
-    }()
-    
-    override init(window: NSWindow?) {
-        super.init(window: window)
-        
-        self.window = wind
-        self.contentViewController = SecondViewController()
-        self.window?.center()
-    }
-    
-    override func windowDidLoad() {
-        super.windowDidLoad()
 
-        // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
-    }
-    
+     lazy var vc: NSViewController = {
+         let viewController  = SecondViewController()
+         return viewController
+     }()
+     
+     
+     override init(window: NSWindow?){
+         super.init(window:window)
+         self.window = self.myWindow
+         self.contentViewController = self.vc
+         self.window?.center()
+     }
+     
+     required init?(coder aDecoder: NSCoder) {
+         fatalError("init(coder:) has not been implemented")
+     }
 }

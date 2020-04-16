@@ -10,21 +10,22 @@ import Cocoa
 
 class SecondViewController: NSViewController {
     
-    override init(nibName nibNameOrNil: NSNib.Name?, bundle nibBundleOrNil: Bundle?) {
+    lazy var myView: NSView = {
+        let frame = CGRect(x: 0, y: 0, width: 400, height: 300)
+        let view = NSView(frame: frame)
+        return view
+    }()
+    
+    
+    override init(nibName nibNameOrNil: NSNib.Name?, bundle nibBundleOrNil: Bundle?){
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        let viewT = NSView(frame: CGRect(x: 0, y: 0, width: 500, height: 300))
-        
-        self.view = viewT
-        
+        self.view = myView
     }
     
-    required init?(coder: NSCoder) {
+    
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do view setup here.
+        // Some boilerplate code to handle error (needed when override)
     }
     
 }
