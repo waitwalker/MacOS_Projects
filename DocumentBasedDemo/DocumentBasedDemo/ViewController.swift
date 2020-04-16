@@ -34,5 +34,9 @@ class ViewController: NSViewController {
     }
 
 
+    @IBAction func secondAction(_ sender: NSButton) {
+        let secondVC = SecondViewController()
+        self.presentAsModalWindow(secondVC)
+    }
 }
 

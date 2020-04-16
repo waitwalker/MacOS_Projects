@@ -15,6 +15,8 @@
 		BFD4C1992447E86D00C1EC34 /* Window.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFD4C1982447E86D00C1EC34 /* Window.xib */; };
 		BFD4C19B2447EC0D00C1EC34 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD4C19A2447EC0D00C1EC34 /* WindowController.swift */; };
 		BFD4C19D2447F97A00C1EC34 /* WordCountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD4C19C2447F97A00C1EC34 /* WordCountViewController.swift */; };
+		BFD4C1A024480B3400C1EC34 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD4C19E24480B3400C1EC34 /* SecondViewController.swift */; };
+		BFD4C1A124480B3400C1EC34 /* SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFD4C19F24480B3400C1EC34 /* SecondViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,8 @@
 		BFD4C1982447E86D00C1EC34 /* Window.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Window.xib; sourceTree = "<group>"; };
 		BFD4C19A2447EC0D00C1EC34 /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		BFD4C19C2447F97A00C1EC34 /* WordCountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCountViewController.swift; sourceTree = "<group>"; };
+		BFD4C19E24480B3400C1EC34 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		BFD4C19F24480B3400C1EC34 /* SecondViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SecondViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +75,8 @@
 				BFD4C1922447E7C300C1EC34 /* DocumentBasedDemo.entitlements */,
 				BFD4C19A2447EC0D00C1EC34 /* WindowController.swift */,
 				BFD4C19C2447F97A00C1EC34 /* WordCountViewController.swift */,
+				BFD4C19E24480B3400C1EC34 /* SecondViewController.swift */,
+				BFD4C19F24480B3400C1EC34 /* SecondViewController.xib */,
 			);
 			path = DocumentBasedDemo;
 			sourceTree = "<group>";
@@ -133,6 +139,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFD4C1A124480B3400C1EC34 /* SecondViewController.xib in Resources */,
 				BFD4C18D2447E7C300C1EC34 /* Assets.xcassets in Resources */,
 				BFD4C1902447E7C300C1EC34 /* Main.storyboard in Resources */,
 				BFD4C1992447E86D00C1EC34 /* Window.xib in Resources */,
@@ -146,6 +153,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFD4C1A024480B3400C1EC34 /* SecondViewController.swift in Sources */,
 				BFD4C19D2447F97A00C1EC34 /* WordCountViewController.swift in Sources */,
 				BFD4C1892447E7C100C1EC34 /* ViewController.swift in Sources */,
 				BFD4C19B2447EC0D00C1EC34 /* WindowController.swift in Sources */,
