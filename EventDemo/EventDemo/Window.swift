@@ -66,10 +66,19 @@ class Window: NSWindow {
         super.rightMouseDragged(with: event)
     }
     
-    // 设置鼠标光标
+    // 设置鼠标光标 为十字架类型
     override func cursorUpdate(with event: NSEvent) {
         NSCursor.crosshair.set()
         super.cursorUpdate(with: event)
+    }
+    
+    override func performKeyEquivalent(with event: NSEvent) -> Bool {
+        let characters = event.characters
+        if characters == "1" {
+            return true
+        }
+        print("没有当前快捷键")
+        return false
     }
     
 }
