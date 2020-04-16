@@ -724,7 +724,7 @@
             <objects>
                 <windowController id="6iX-zh-5Tn" sceneMemberID="viewController">
                     <window key="window" title="Word Count" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="3C3-Zk-ZU2">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowStyleMask key="styleMask" titled="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="-855" y="1261" width="480" height="270"/>
                         <rect key="screenRect" x="-1280" y="800" width="2560" height="1417"/>
