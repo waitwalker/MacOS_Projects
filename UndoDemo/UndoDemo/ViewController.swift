@@ -52,7 +52,7 @@ class ViewController: NSViewController {
         if self.para1 == firstPara && self.para2 == secondPara {
             
         } else {
-            self.viewUndoManager.comptibleRegisterUndo(withTarget: self) { (target) in
+            self.viewUndoManager.comptableRegisterUndo(withTarget: self) { (target) in
                 
                 target.compute(para1: p1, para2: p2)
                 let actionName = "\(firstPara)+\(secondPara)"
@@ -86,7 +86,7 @@ class ViewController: NSViewController {
 }
 
 extension UndoManager {
-    func comptibleRegisterUndo<TargetType: AnyObject>(withTarget target: TargetType, handler: @escaping (TargetType) -> ()) -> Void {
+    func comptableRegisterUndo<TargetType: AnyObject>(withTarget target: TargetType, handler: @escaping (TargetType) -> ()) -> Void {
         self.registerUndo(withTarget: target, handler: handler)
     }
     
