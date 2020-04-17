@@ -52,6 +52,7 @@ class ViewController: NSViewController {
         if self.para1 == firstPara && self.para2 == secondPara {
             
         } else {
+            // 注册undo操作
             self.viewUndoManager.comptableRegisterUndo(withTarget: self) { (target) in
                 
                 target.compute(para1: p1, para2: p2)
