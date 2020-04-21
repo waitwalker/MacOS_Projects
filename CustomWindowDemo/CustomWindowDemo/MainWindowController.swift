@@ -7,11 +7,12 @@
 //
 
 import Cocoa
+import SnapKit
 
 class MainWindowController: NSWindowController {
     
     lazy var myWindow: MainWindow = {
-        let styleMask:NSWindow.StyleMask = [.miniaturizable, .titled, .closable, .borderless]
+        let styleMask:NSWindow.StyleMask = [.miniaturizable, .titled, .closable, .borderless, .fullSizeContentView]
         
         let myWin = MainWindow(contentRect: NSRect(x: 0, y: 0, width: 600, height: 400), styleMask: styleMask, backing: NSWindow.BackingStoreType.buffered, defer: true)
         myWin.windowController = self
@@ -31,8 +32,12 @@ class MainWindowController: NSWindowController {
         
         titleView?.autoresizesSubviews = true
         
-        
-        
+        titleView?.snp.remakeConstraints({ (make) in
+            make.left.equalTo(10)
+            make.width.equalTo(180)
+            make.height.equalTo(90)
+            make.top.equalTo(40)
+        })
         
 //        let contentView = WindowContentView(frame: NSRect(x: 0, y: 0, width: 600, height: 400))
 //        contentView.wantsLayer = true
