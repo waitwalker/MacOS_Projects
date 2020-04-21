@@ -65,21 +65,25 @@ extension ViewController: NSTableViewDelegate, NSTableViewDataSource {
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         
         print("当前column:\(tableColumn?.title)")
-//        var view = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "cellId"), owner: self)
-//        if view == nil {
-//            view = NSTextField(frame: NSRect(x: 0, y: 0, width: 100, height: 30))
-//            view?.identifier = NSUserInterfaceItemIdentifier(rawValue: "cellId")
-//        }
-//        (view as! NSTextField).stringValue = dataSource[row]
-//        return view
-        
-        var currentCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "currentCell"), owner: self)
-        if currentCell == nil {
-            currentCell = CurrentCell(frame: NSRect(x: 0, y: 0, width: 150, height: 50))
-            currentCell!.identifier = NSUserInterfaceItemIdentifier(rawValue: "currentCell")
+        let currentModel = dataSource[row]
+        // 第一列
+        if tableColumn?.identifier == NSUserInterfaceItemIdentifier(rawValue: "test") {
+            var currentCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "currentCell"), owner: self)
+            if currentCell == nil {
+                currentCell = CurrentCell(frame: NSRect(x: 0, y: 0, width: 150, height: 50))
+                currentCell!.identifier = NSUserInterfaceItemIdentifier(rawValue: "currentCell")
+            }
+            (currentCell as! CurrentCell).title = dataSource[row]
+            return currentCell
+        } else {
+            var currentCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "currentCell"), owner: self)
+            if currentCell == nil {
+                currentCell = CurrentCell(frame: NSRect(x: 0, y: 0, width: 150, height: 50))
+                currentCell!.identifier = NSUserInterfaceItemIdentifier(rawValue: "currentCell")
+            }
+            (currentCell as! CurrentCell).title = currentModel + "拼" + "\(row)"
+            return currentCell
         }
-        (currentCell as! CurrentCell).title = dataSource[row]
-        return currentCell
     }
     
     // 设置每行容器视图
@@ -100,6 +104,10 @@ extension ViewController: NSTableViewDelegate, NSTableViewDataSource {
     // 设置行高
     func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
         return 50
+    }
+    
+    func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
+        return true
     }
     
 }
