@@ -12,7 +12,7 @@ class MainWindowController: NSWindowController {
     
     lazy var myWindow: MainWindow = {
         let styleMask:NSWindow.StyleMask = [.miniaturizable, .titled, .closable]
-        let myWin = MainWindow(contentRect: NSRect(x: 0, y: 0, width: 600, height: 400), styleMask: styleMask, backing: NSWindow.BackingStoreType.buffered, defer: true)
+        let myWin = MainWindow(contentRect: NSRect(x: 0, y: 0, width: 600, height: 400), styleMask: NSWindow.StyleMask.closable, backing: NSWindow.BackingStoreType.buffered, defer: true)
         myWin.windowController = self
         myWin.isMovableByWindowBackground = true
         myWin.isMovable = true
@@ -23,6 +23,7 @@ class MainWindowController: NSWindowController {
     override init(window: NSWindow?) {
         super.init(window: window)
         self.window = myWindow
+        self.window?.contentView = WindowContentView(frame: NSRect(x: 0, y: 0, width: 600, height: 400))
     }
     
     required init?(coder: NSCoder) {
@@ -31,8 +32,20 @@ class MainWindowController: NSWindowController {
     
     override func windowDidLoad() {
         super.windowDidLoad()
-
-        self.window = myWindow
     }
 
+}
+
+class WindowContentView: NSView {
+    override init(frame frameRect: NSRect) {
+        super.init(frame: frameRect)
+        let textField = NSTextField(frame: NSRect(x: 0, y: 0, width: 100, height: 50))
+        textField.stringValue = "北京"
+        self.addSubview(textField)
+        
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
