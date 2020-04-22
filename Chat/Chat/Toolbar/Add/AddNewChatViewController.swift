@@ -15,4 +15,7 @@ class AddNewChatViewController: NSViewController {
         // Do view setup here.
     }
     
+    @IBAction func cancelButtonAction(_ sender: NSButton) {
+        dismiss(self)
+    }
 }
