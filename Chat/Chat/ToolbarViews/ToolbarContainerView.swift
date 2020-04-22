@@ -14,6 +14,9 @@ import Cocoa
  */
 class ToolbarContainerView: NSView {
 
+    var searchContainerView: SearchContainerView!
+    
+    
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
         self.wantsLayer = true
@@ -27,7 +30,7 @@ class ToolbarContainerView: NSView {
     /// - Returns: Void
     func setupSubviews() -> Void {
         
-        let searchContainerView = SearchContainerView()
+        searchContainerView = SearchContainerView()
         searchContainerView.delegate = self
         self.addSubview(searchContainerView)
         
@@ -63,11 +66,23 @@ class ToolbarContainerView: NSView {
         super.draw(dirtyRect)
     }
     
+    // 设置搜索popover
+    func setupSearchPopover() -> Void {
+        
+        let searchVC = SearchPopoverViewController()
+        
+        let searchPopover = NSPopover()
+        searchPopover.contentViewController = searchVC
+        searchPopover.behavior = NSPopover.Behavior.semitransient
+        searchPopover.show(relativeTo: searchContainerView.bounds, of: searchContainerView, preferredEdge: NSRectEdge.maxY)
+    }
+    
 }
 
 /// 搜索输入框容器
 extension ToolbarContainerView: SearchContainerDelegate {
     func searchContainerBecomeFirstResponder(_ searchContainerView: SearchContainerView) {
         print("搜索框变为第一响应者")
+        setupSearchPopover()
     }
 }
