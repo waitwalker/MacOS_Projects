@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		A6BCCD301761E7C7042D18E0 /* Pods_Chat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 770D9670D41EAE44C20DC2F7 /* Pods_Chat.framework */; };
 		BF292F03244ED3F100676E51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF292F02244ED3F100676E51 /* AppDelegate.swift */; };
-		BF292F05244ED3F100676E51 /* ChatContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF292F04244ED3F100676E51 /* ChatContainerViewController.swift */; };
 		BF292F07244ED3F300676E51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF292F06244ED3F300676E51 /* Assets.xcassets */; };
 		BF292F0A244ED3F300676E51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF292F08244ED3F300676E51 /* Main.storyboard */; };
 		BF292F13244ED4AD00676E51 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF292F12244ED4AD00676E51 /* MainWindowController.swift */; };
@@ -23,6 +22,10 @@
 		BFE1CB01244FF89200F55BD3 /* FriendContainerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFE1CAFF244FF89200F55BD3 /* FriendContainerViewController.xib */; };
 		BFE1CB04244FF8A000F55BD3 /* DynamicContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE1CB02244FF8A000F55BD3 /* DynamicContainerViewController.swift */; };
 		BFE1CB05244FF8A000F55BD3 /* DynamicContainerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFE1CB03244FF8A000F55BD3 /* DynamicContainerViewController.xib */; };
+		BFE1CB0824500FF600F55BD3 /* LeftContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE1CB0724500FF600F55BD3 /* LeftContainerView.swift */; };
+		BFE1CB0A2450114F00F55BD3 /* ChatContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE1CB092450114F00F55BD3 /* ChatContainerViewController.swift */; };
+		BFE1CB0C2450137800F55BD3 /* MiddleContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE1CB0B2450137800F55BD3 /* MiddleContainerView.swift */; };
+		BFE1CB0E2450138C00F55BD3 /* RightContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE1CB0D2450138C00F55BD3 /* RightContainerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +34,6 @@
 		770D9670D41EAE44C20DC2F7 /* Pods_Chat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF292EFF244ED3F100676E51 /* Chat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF292F02244ED3F100676E51 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BF292F04244ED3F100676E51 /* ChatContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatContainerViewController.swift; sourceTree = "<group>"; };
 		BF292F06244ED3F300676E51 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF292F09244ED3F300676E51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BF292F0B244ED3F300676E51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +49,10 @@
 		BFE1CAFF244FF89200F55BD3 /* FriendContainerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendContainerViewController.xib; sourceTree = "<group>"; };
 		BFE1CB02244FF8A000F55BD3 /* DynamicContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicContainerViewController.swift; sourceTree = "<group>"; };
 		BFE1CB03244FF8A000F55BD3 /* DynamicContainerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DynamicContainerViewController.xib; sourceTree = "<group>"; };
+		BFE1CB0724500FF600F55BD3 /* LeftContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftContainerView.swift; sourceTree = "<group>"; };
+		BFE1CB092450114F00F55BD3 /* ChatContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatContainerViewController.swift; sourceTree = "<group>"; };
+		BFE1CB0B2450137800F55BD3 /* MiddleContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleContainerView.swift; sourceTree = "<group>"; };
+		BFE1CB0D2450138C00F55BD3 /* RightContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightContainerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,7 +145,8 @@
 		BFE1CAF7244FF76700F55BD3 /* ChatContainer */ = {
 			isa = PBXGroup;
 			children = (
-				BF292F04244ED3F100676E51 /* ChatContainerViewController.swift */,
+				BFE1CB0624500FD200F55BD3 /* view */,
+				BFE1CB092450114F00F55BD3 /* ChatContainerViewController.swift */,
 			);
 			path = ChatContainer;
 			sourceTree = "<group>";
@@ -160,6 +167,16 @@
 				BFE1CB03244FF8A000F55BD3 /* DynamicContainerViewController.xib */,
 			);
 			path = Dynamic;
+			sourceTree = "<group>";
+		};
+		BFE1CB0624500FD200F55BD3 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				BFE1CB0724500FF600F55BD3 /* LeftContainerView.swift */,
+				BFE1CB0B2450137800F55BD3 /* MiddleContainerView.swift */,
+				BFE1CB0D2450138C00F55BD3 /* RightContainerView.swift */,
+			);
+			path = view;
 			sourceTree = "<group>";
 		};
 		BFEFF68082A862EC76E2B1B2 /* Frameworks */ = {
@@ -288,15 +305,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFE1CB0C2450137800F55BD3 /* MiddleContainerView.swift in Sources */,
 				BFE1CB00244FF89200F55BD3 /* FriendContainerViewController.swift in Sources */,
-				BF292F05244ED3F100676E51 /* ChatContainerViewController.swift in Sources */,
 				BF292F03244ED3F100676E51 /* AppDelegate.swift in Sources */,
+				BFE1CB0A2450114F00F55BD3 /* ChatContainerViewController.swift in Sources */,
+				BFE1CB0824500FF600F55BD3 /* LeftContainerView.swift in Sources */,
 				BFE1CAE8244FD1E600F55BD3 /* SearchPopoverViewController.swift in Sources */,
 				BFE1CB04244FF8A000F55BD3 /* DynamicContainerViewController.swift in Sources */,
 				BFE1CAE5244FC9E600F55BD3 /* ToolbarContainerView.swift in Sources */,
 				BF292F18244EDF3100676E51 /* SearchContainerView.swift in Sources */,
 				BFE1CAF0244FDD3500F55BD3 /* AddNewChatViewController.swift in Sources */,
 				BF292F13244ED4AD00676E51 /* MainWindowController.swift in Sources */,
+				BFE1CB0E2450138C00F55BD3 /* RightContainerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

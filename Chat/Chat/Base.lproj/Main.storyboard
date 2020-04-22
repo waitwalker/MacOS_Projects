@@ -687,14 +687,14 @@
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="950" height="650"/>
+                        <rect key="contentRect" x="196" y="240" width="950" height="550"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                         <toolbar key="toolbar" implicitIdentifier="4433B5C8-4F00-4D7F-93FE-A54795AED69E" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="gut-8Y-jtA">
                             <allowedToolbarItems>
                                 <toolbarItem implicitItemIdentifier="F592AF8E-A869-4510-9FF3-B99C2FD66F1C" label="Custom View" paletteLabel="Custom View" tag="-1" sizingBehavior="auto" id="e5X-pE-bVP">
                                     <nil key="toolTip"/>
                                     <customView key="view" id="QkA-Vb-nef">
-                                        <rect key="frame" x="0.0" y="14" width="750" height="50"/>
+                                        <rect key="frame" x="0.0" y="14" width="850" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     </customView>
                                 </toolbarItem>
@@ -714,20 +714,20 @@
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="265" y="339"/>
+            <point key="canvasLocation" x="-3" y="304"/>
         </scene>
         <!--Chat Container View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ChatContainerViewController" customModule="Chat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="950" height="550"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </view>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="74" y="854"/>
+            <point key="canvasLocation" x="74" y="1329"/>
         </scene>
     </scenes>
 </document>
