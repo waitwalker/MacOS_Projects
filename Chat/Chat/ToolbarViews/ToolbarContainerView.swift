@@ -28,6 +28,7 @@ class ToolbarContainerView: NSView {
     func setupSubviews() -> Void {
         
         let searchContainerView = SearchContainerView()
+        searchContainerView.delegate = self
         self.addSubview(searchContainerView)
         
         searchContainerView.snp.makeConstraints { (make) in
@@ -62,4 +63,11 @@ class ToolbarContainerView: NSView {
         super.draw(dirtyRect)
     }
     
+}
+
+/// 搜索输入框容器
+extension ToolbarContainerView: SearchContainerDelegate {
+    func searchContainerBecomeFirstResponder(_ searchContainerView: SearchContainerView) {
+        print("搜索框变为第一响应者")
+    }
 }

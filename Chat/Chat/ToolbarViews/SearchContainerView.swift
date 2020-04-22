@@ -8,10 +8,15 @@
 
 import Cocoa
 
+/*
+ 1. 搜索容器
+ **/
 class SearchContainerView: NSView {
 
     var textField: SearchTextField!
     var imageView: NSImageView!
+    var delegate: SearchContainerDelegate?
+    
     
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
@@ -21,6 +26,7 @@ class SearchContainerView: NSView {
         setupSubviews()
     }
     
+    // 初始化子控件
     func setupSubviews() -> Void {
         textField = SearchTextField()
         textField.backgroundColor = NSColor.clear
@@ -64,9 +70,11 @@ class SearchContainerView: NSView {
     
 }
 
+/// 输入框协议
 extension SearchContainerView: NSTextFieldDelegate, SearchTextFieldProtocol{
-    func textFieldDidBecomeSearchTextField(textField: SearchTextField) {
+    func textFieldDidBecomeResponder(textField: SearchTextField) {
         imageView.isHidden = true
+        self.delegate?.searchContainerBecomeFirstResponder(self)
     }
     
     func controlTextDidBeginEditing(_ obj: Notification) {
@@ -79,20 +87,26 @@ extension SearchContainerView: NSTextFieldDelegate, SearchTextFieldProtocol{
     
 }
 
+
+/// 自定义输入框
 class SearchTextField: NSTextField {
     @objc var searchTextFieldDelegate: SearchTextFieldProtocol?
     
     override func becomeFirstResponder() -> Bool {
         let flag = super.becomeFirstResponder()
         if flag {
-            self.searchTextFieldDelegate?.textFieldDidBecomeSearchTextField(textField: self)
+            self.searchTextFieldDelegate?.textFieldDidBecomeResponder(textField: self)
         }
         return flag
     }
 }
 
-
 /// 搜索输入框delegate
 @objc protocol SearchTextFieldProtocol {
-    func textFieldDidBecomeSearchTextField(textField: SearchTextField) -> Void
+    func textFieldDidBecomeResponder(textField: SearchTextField) -> Void
+}
+
+/// 搜索容器协议
+@objc protocol SearchContainerDelegate {
+    func searchContainerBecomeFirstResponder(_ searchContainerView: SearchContainerView) -> Void
 }
