@@ -15,6 +15,7 @@ import Cocoa
 class ToolbarContainerView: NSView {
 
     var searchContainerView: SearchContainerView!
+    var addNewChatButton: NSButton!
     
     
     override init(frame frameRect: NSRect) {
@@ -41,6 +42,17 @@ class ToolbarContainerView: NSView {
             make.height.equalTo(20)
         }
         
+        addNewChatButton = NSButton(image: NSImage(named: "add_new_chat")!, target: self, action: #selector(addNewChatAction))
+        addNewChatButton.wantsLayer = true
+        addNewChatButton.layer?.cornerRadius = 10.0
+        self.addSubview(addNewChatButton)
+        
+        addNewChatButton.snp.makeConstraints { (make) in
+            make.left.equalTo(searchContainerView.snp.right).offset(10)
+            make.height.width.equalTo(20)
+            make.centerY.equalTo(searchContainerView)
+        }
+        
         
         let button = NSButton(title: "居中", target: self, action: #selector(buttonAction))
         self.addSubview(button)
@@ -49,6 +61,13 @@ class ToolbarContainerView: NSView {
             make.height.equalTo(40)
             make.width.equalTo(80)
         }
+    }
+    
+    // 添加新的聊天回调
+    @objc func addNewChatAction() {
+        let newChatController = AddNewChatViewController()
+        NSApplication.shared.mainWindow?.contentViewController?.presentAsSheet(newChatController)
+        
     }
     
     

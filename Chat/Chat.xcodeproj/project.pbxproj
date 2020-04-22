@@ -17,6 +17,8 @@
 		BFE1CAE5244FC9E600F55BD3 /* ToolbarContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE1CAE4244FC9E600F55BD3 /* ToolbarContainerView.swift */; };
 		BFE1CAE8244FD1E600F55BD3 /* SearchPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE1CAE6244FD1E600F55BD3 /* SearchPopoverViewController.swift */; };
 		BFE1CAE9244FD1E600F55BD3 /* SearchPopoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFE1CAE7244FD1E600F55BD3 /* SearchPopoverViewController.xib */; };
+		BFE1CAF0244FDD3500F55BD3 /* AddNewChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE1CAEE244FDD3500F55BD3 /* AddNewChatViewController.swift */; };
+		BFE1CAF1244FDD3500F55BD3 /* AddNewChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFE1CAEF244FDD3500F55BD3 /* AddNewChatViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		BFE1CAE4244FC9E600F55BD3 /* ToolbarContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarContainerView.swift; sourceTree = "<group>"; };
 		BFE1CAE6244FD1E600F55BD3 /* SearchPopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPopoverViewController.swift; sourceTree = "<group>"; };
 		BFE1CAE7244FD1E600F55BD3 /* SearchPopoverViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchPopoverViewController.xib; sourceTree = "<group>"; };
+		BFE1CAEE244FDD3500F55BD3 /* AddNewChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewChatViewController.swift; sourceTree = "<group>"; };
+		BFE1CAEF244FDD3500F55BD3 /* AddNewChatViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewChatViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +83,7 @@
 		BF292F01244ED3F100676E51 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
-				BF292F16244EDECC00676E51 /* ToolbarViews */,
+				BF292F16244EDECC00676E51 /* Toolbar */,
 				BF292F02244ED3F100676E51 /* AppDelegate.swift */,
 				BF292F04244ED3F100676E51 /* ViewController.swift */,
 				BF292F12244ED4AD00676E51 /* MainWindowController.swift */,
@@ -91,15 +95,33 @@
 			path = Chat;
 			sourceTree = "<group>";
 		};
-		BF292F16244EDECC00676E51 /* ToolbarViews */ = {
+		BF292F16244EDECC00676E51 /* Toolbar */ = {
+			isa = PBXGroup;
+			children = (
+				BFE1CAED244FDD1A00F55BD3 /* Add */,
+				BFE1CAEC244FDCEA00F55BD3 /* Search */,
+				BFE1CAE4244FC9E600F55BD3 /* ToolbarContainerView.swift */,
+			);
+			path = Toolbar;
+			sourceTree = "<group>";
+		};
+		BFE1CAEC244FDCEA00F55BD3 /* Search */ = {
 			isa = PBXGroup;
 			children = (
 				BF292F17244EDF3100676E51 /* SearchContainerView.swift */,
-				BFE1CAE4244FC9E600F55BD3 /* ToolbarContainerView.swift */,
 				BFE1CAE6244FD1E600F55BD3 /* SearchPopoverViewController.swift */,
 				BFE1CAE7244FD1E600F55BD3 /* SearchPopoverViewController.xib */,
 			);
-			path = ToolbarViews;
+			path = Search;
+			sourceTree = "<group>";
+		};
+		BFE1CAED244FDD1A00F55BD3 /* Add */ = {
+			isa = PBXGroup;
+			children = (
+				BFE1CAEE244FDD3500F55BD3 /* AddNewChatViewController.swift */,
+				BFE1CAEF244FDD3500F55BD3 /* AddNewChatViewController.xib */,
+			);
+			path = Add;
 			sourceTree = "<group>";
 		};
 		BFEFF68082A862EC76E2B1B2 /* Frameworks */ = {
@@ -173,6 +195,7 @@
 				BF292F07244ED3F300676E51 /* Assets.xcassets in Resources */,
 				BFE1CAE9244FD1E600F55BD3 /* SearchPopoverViewController.xib in Resources */,
 				BF292F0A244ED3F300676E51 /* Main.storyboard in Resources */,
+				BFE1CAF1244FDD3500F55BD3 /* AddNewChatViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,6 +253,7 @@
 				BFE1CAE8244FD1E600F55BD3 /* SearchPopoverViewController.swift in Sources */,
 				BFE1CAE5244FC9E600F55BD3 /* ToolbarContainerView.swift in Sources */,
 				BF292F18244EDF3100676E51 /* SearchContainerView.swift in Sources */,
+				BFE1CAF0244FDD3500F55BD3 /* AddNewChatViewController.swift in Sources */,
 				BF292F13244ED4AD00676E51 /* MainWindowController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
