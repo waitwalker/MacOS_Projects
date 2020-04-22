@@ -14,6 +14,7 @@
 		BF292F0A244ED3F300676E51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF292F08244ED3F300676E51 /* Main.storyboard */; };
 		BF292F13244ED4AD00676E51 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF292F12244ED4AD00676E51 /* MainWindowController.swift */; };
 		BF292F18244EDF3100676E51 /* SearchContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF292F17244EDF3100676E51 /* SearchContainerView.swift */; };
+		BFE1CAE5244FC9E600F55BD3 /* ToolbarContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE1CAE4244FC9E600F55BD3 /* ToolbarContainerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		BF292F0C244ED3F300676E51 /* Chat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Chat.entitlements; sourceTree = "<group>"; };
 		BF292F12244ED4AD00676E51 /* MainWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
 		BF292F17244EDF3100676E51 /* SearchContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchContainerView.swift; sourceTree = "<group>"; };
+		BFE1CAE4244FC9E600F55BD3 /* ToolbarContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarContainerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,11 +78,11 @@
 				BF292F16244EDECC00676E51 /* ToolbarViews */,
 				BF292F02244ED3F100676E51 /* AppDelegate.swift */,
 				BF292F04244ED3F100676E51 /* ViewController.swift */,
+				BF292F12244ED4AD00676E51 /* MainWindowController.swift */,
 				BF292F06244ED3F300676E51 /* Assets.xcassets */,
 				BF292F08244ED3F300676E51 /* Main.storyboard */,
 				BF292F0B244ED3F300676E51 /* Info.plist */,
 				BF292F0C244ED3F300676E51 /* Chat.entitlements */,
-				BF292F12244ED4AD00676E51 /* MainWindowController.swift */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -89,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				BF292F17244EDF3100676E51 /* SearchContainerView.swift */,
+				BFE1CAE4244FC9E600F55BD3 /* ToolbarContainerView.swift */,
 			);
 			path = ToolbarViews;
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 			files = (
 				BF292F05244ED3F100676E51 /* ViewController.swift in Sources */,
 				BF292F03244ED3F100676E51 /* AppDelegate.swift in Sources */,
+				BFE1CAE5244FC9E600F55BD3 /* ToolbarContainerView.swift in Sources */,
 				BF292F18244EDF3100676E51 /* SearchContainerView.swift in Sources */,
 				BF292F13244ED4AD00676E51 /* MainWindowController.swift in Sources */,
 			);

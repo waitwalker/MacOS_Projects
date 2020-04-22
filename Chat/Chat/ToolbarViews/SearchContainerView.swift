@@ -29,6 +29,7 @@ class SearchContainerView: NSView {
         textField.layer?.backgroundColor = NSColor.clear.cgColor
         textField.layer?.borderWidth = 1.0
         textField.layer?.borderColor = NSColor.clear.cgColor
+        textField.textColor = NSColor.green
         textField.delegate = self
         textField.searchTextFieldDelegate = self
         self.addSubview(textField)

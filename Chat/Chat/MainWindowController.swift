@@ -11,6 +11,8 @@ import SnapKit
 class MainWindowController: NSWindowController {
     
     @IBOutlet weak var toolbarView: NSView!
+    var toolbarContainerView: ToolbarContainerView!
+    
     override func windowDidLoad() {
         super.windowDidLoad()
         setupToolbar()
@@ -21,28 +23,12 @@ class MainWindowController: NSWindowController {
         toolbarView.wantsLayer = true
         toolbarView.layer?.backgroundColor = NSColor.red.cgColor
         
-        let searchContainerView = SearchContainerView()
-        toolbarView.addSubview(searchContainerView)
+        toolbarContainerView = ToolbarContainerView()
+        toolbarView.addSubview(toolbarContainerView)
         
-        searchContainerView.snp.makeConstraints { (make) in
-            make.left.equalTo(0)
-            make.width.equalTo(120)
-            make.centerY.equalTo(toolbarView)
-            make.height.equalTo(20)
+        toolbarContainerView.snp.makeConstraints { (make) in
+            make.top.left.bottom.right.equalTo(toolbarView)
         }
-        
-        
-        let button = NSButton(title: "居中", target: self, action: #selector(buttonAction))
-        toolbarView.addSubview(button)
-        button.snp.makeConstraints { (make) in
-            make.center.equalTo(toolbarView)
-            make.height.equalTo(40)
-            make.width.equalTo(80)
-        }
-    }
     
-    @objc func buttonAction() {
-        
     }
-
 }
