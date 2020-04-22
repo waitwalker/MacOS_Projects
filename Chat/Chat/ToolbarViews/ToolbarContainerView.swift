@@ -73,6 +73,7 @@ class ToolbarContainerView: NSView {
         
         let searchPopover = NSPopover()
         searchPopover.contentViewController = searchVC
+        searchPopover.delegate = self
         searchPopover.behavior = NSPopover.Behavior.semitransient
         searchPopover.show(relativeTo: searchContainerView.bounds, of: searchContainerView, preferredEdge: NSRectEdge.maxY)
     }
@@ -84,5 +85,11 @@ extension ToolbarContainerView: SearchContainerDelegate {
     func searchContainerBecomeFirstResponder(_ searchContainerView: SearchContainerView) {
         print("搜索框变为第一响应者")
         setupSearchPopover()
+    }
+}
+
+extension ToolbarContainerView: NSPopoverDelegate {
+    func popoverDidClose(_ notification: Notification) {
+        NSApplication.shared.mainWindow?.makeFirstResponder(self)
     }
 }

@@ -81,6 +81,14 @@ extension SearchContainerView: NSTextFieldDelegate, SearchTextFieldProtocol{
         
     }
     
+    func controlTextDidChange(_ obj: Notification) {
+        
+    }
+    
+    func controlTextDidEndEditing(_ obj: Notification) {
+        
+    }
+    
     func control(_ control: NSControl, textShouldBeginEditing fieldEditor: NSText) -> Bool {
         return true
     }
