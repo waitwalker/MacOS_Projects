@@ -26,6 +26,7 @@
 		BFE1CB0A2450114F00F55BD3 /* ChatContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE1CB092450114F00F55BD3 /* ChatContainerViewController.swift */; };
 		BFE1CB0C2450137800F55BD3 /* MiddleContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE1CB0B2450137800F55BD3 /* MiddleContainerView.swift */; };
 		BFE1CB0E2450138C00F55BD3 /* RightContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE1CB0D2450138C00F55BD3 /* RightContainerView.swift */; };
+		BFEC0E14245133A00054829C /* RecectChatListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEC0E13245133A00054829C /* RecectChatListModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		BFE1CB092450114F00F55BD3 /* ChatContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatContainerViewController.swift; sourceTree = "<group>"; };
 		BFE1CB0B2450137800F55BD3 /* MiddleContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleContainerView.swift; sourceTree = "<group>"; };
 		BFE1CB0D2450138C00F55BD3 /* RightContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightContainerView.swift; sourceTree = "<group>"; };
+		BFEC0E13245133A00054829C /* RecectChatListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecectChatListModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 		BFE1CAF7244FF76700F55BD3 /* ChatContainer */ = {
 			isa = PBXGroup;
 			children = (
+				BFEC0E12245133750054829C /* Model */,
 				BFE1CB0624500FD200F55BD3 /* view */,
 				BFE1CB092450114F00F55BD3 /* ChatContainerViewController.swift */,
 			);
@@ -177,6 +180,14 @@
 				BFE1CB0D2450138C00F55BD3 /* RightContainerView.swift */,
 			);
 			path = view;
+			sourceTree = "<group>";
+		};
+		BFEC0E12245133750054829C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BFEC0E13245133A00054829C /* RecectChatListModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		BFEFF68082A862EC76E2B1B2 /* Frameworks */ = {
@@ -314,6 +325,7 @@
 				BFE1CB04244FF8A000F55BD3 /* DynamicContainerViewController.swift in Sources */,
 				BFE1CAE5244FC9E600F55BD3 /* ToolbarContainerView.swift in Sources */,
 				BF292F18244EDF3100676E51 /* SearchContainerView.swift in Sources */,
+				BFEC0E14245133A00054829C /* RecectChatListModel.swift in Sources */,
 				BFE1CAF0244FDD3500F55BD3 /* AddNewChatViewController.swift in Sources */,
 				BF292F13244ED4AD00676E51 /* MainWindowController.swift in Sources */,
 				BFE1CB0E2450138C00F55BD3 /* RightContainerView.swift in Sources */,
