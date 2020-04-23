@@ -16,6 +16,11 @@ class MiddleContainerView: NSView {
     var nameLabel: NSTextField!
     var addGroupUserButton: NSButton!
     var foldButton: NSButton!
+    var scrollView: NSScrollView!
+    var tableView: NSTableView!
+    var bottomContainerView: NSView!
+    
+    
     
     
 
@@ -29,38 +34,22 @@ class MiddleContainerView: NSView {
     }
     
     func setupSubviews() -> Void {
-        leftBorder = NSView()
+        leftBorder = NSView(frame: NSRect(x: 0, y: 0, width: 0.5, height: self.frame.height))
         leftBorder.wantsLayer = true
         leftBorder.layer?.backgroundColor = NSColor.white.cgColor
         self.addSubview(leftBorder)
         
-        leftBorder.snp.makeConstraints { (make) in
-            make.left.top.bottom.equalTo(0)
-            make.width.equalTo(0.5)
-        }
-        
-        rightBorder = NSView()
+        rightBorder = NSView(frame: NSRect(x: self.frame.width - 1, y: 0, width: 0.5, height: self.frame.height))
         rightBorder.wantsLayer = true
         rightBorder.layer?.backgroundColor = NSColor.white.cgColor
         self.addSubview(rightBorder)
         
-        rightBorder.snp.makeConstraints { (make) in
-            make.right.top.bottom.equalTo(0)
-            make.width.equalTo(0.5)
-        }
-        
-        topContainerView = NSView()
+        topContainerView = NSView(frame: NSRect(x: 2, y: 600, width: self.frame.width - 4, height: 60))
         topContainerView.wantsLayer = true
-        topContainerView.layer?.backgroundColor = NSColor.white.cgColor
+        topContainerView.layer?.backgroundColor = NSColor.red.cgColor
         self.addSubview(topContainerView)
-        topContainerView.snp.makeConstraints { (make) in
-            make.top.equalTo(0)
-            make.left.equalTo(2)
-            make.right.equalTo(-2)
-            make.height.equalTo(60)
-        }
         
-        nameLabel = NSTextField()
+        nameLabel = NSTextField(frame: NSRect(x: 10, y: 10, width: 150, height: 40))
         nameLabel.stringValue = "python && Golang"
         nameLabel.isEditable = false
         nameLabel.textColor = NSColor.black
@@ -70,27 +59,37 @@ class MiddleContainerView: NSView {
         nameLabel.isBordered = false
         nameLabel.isBezeled = false
         topContainerView.addSubview(nameLabel)
-        nameLabel.snp.makeConstraints { (make) in
-            make.left.equalTo(20)
-            make.centerY.equalTo(topContainerView)
-        }
         
         foldButton = NSButton(image: NSImage(named: "add_new_chat")!, target: self, action: #selector(foldButtonAction))
+        foldButton.frame = NSRect(x: self.frame.width - 50, y: 10, width: 40, height: 40)
         topContainerView.addSubview(foldButton)
-        foldButton.snp.makeConstraints { (make) in
-            make.right.equalTo(-10)
-            make.height.width.equalTo(40)
-            make.centerY.equalTo(topContainerView)
-        }
         
         addGroupUserButton = NSButton(image: NSImage(named: "add_new_chat")!, target: self, action: #selector(addGroupUserButtonAction))
+        addGroupUserButton.frame = NSRect(x: self.frame.width - 100, y: 10, width: 40, height: 40)
         topContainerView.addSubview(addGroupUserButton)
-        addGroupUserButton.snp.makeConstraints { (make) in
-            make.right.equalTo(foldButton.snp.left).offset(-10)
-            make.height.width.equalTo(40)
-            make.centerY.equalTo(topContainerView)
-        }
         
+        scrollView = NSScrollView(frame: NSRect(x: 2, y: 200, width: self.frame.width - 4, height: 400))
+        scrollView.backgroundColor = NSColor.yellow
+        scrollView.hasVerticalScroller = true
+        self.addSubview(scrollView)
+        
+        let column = NSTableColumn(identifier: NSUserInterfaceItemIdentifier.init(rawValue: "chat_column"))
+        column.title = "最近聊天"
+        column.width = self.frame.width
+        tableView = NSTableView(frame: scrollView.bounds)
+        tableView.addTableColumn(column)
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.backgroundColor = NSColor.white
+        // 去掉header
+        tableView.headerView = nil
+        scrollView.documentView = tableView
+        tableView.reloadData()
+        
+        bottomContainerView = NSView(frame: NSRect(x: 2, y: 150, width: self.frame.width - 4, height: 60))
+        bottomContainerView.wantsLayer = true
+        bottomContainerView.layer?.backgroundColor = NSColor.red.cgColor
+        self.addSubview(bottomContainerView)
         
     }
     
@@ -106,6 +105,37 @@ class MiddleContainerView: NSView {
         super.draw(dirtyRect)
         
         // Drawing code here.
+    }
+    
+}
+
+extension MiddleContainerView: NSTableViewDelegate, NSTableViewDataSource {
+    func numberOfRows(in tableView: NSTableView) -> Int {
+        return 20
+        //return dataSource.data == nil ? 0 : (dataSource.data?.count)!
+    }
+    
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        var cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "cellId"), owner: self)
+        if cell == nil {
+            cell = NSTextField(frame: NSRect(x: 0, y: 0, width:900, height: 60))
+            cell!.identifier = NSUserInterfaceItemIdentifier(rawValue: "cellId")
+        }
+        (cell as! NSTextField).stringValue = "第\(row)行"
+        (cell as! NSTextField).textColor = NSColor.white
+        return cell
+//        var cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "cellId"), owner: self)
+//        if cell == nil {
+//            cell = ChatCell(frame: NSRect(x: 0, y: 0, width:900, height: 60))
+//            cell!.identifier = NSUserInterfaceItemIdentifier(rawValue: "cellId")
+//        }
+//        (cell as! ChatCell).currentData = dataSource.data?[row]
+//        return cell
+    }
+    
+    
+    func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
+        return 60
     }
     
 }

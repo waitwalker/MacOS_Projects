@@ -45,7 +45,7 @@ class LeftContainerView: NSView {
     
     func setupSubviews() -> Void {
         scrollView = NSScrollView(frame: self.bounds)
-        scrollView.backgroundColor = NSColor.yellow
+        scrollView.backgroundColor = NSColor.white
         scrollView.hasVerticalScroller = true
         self.addSubview(scrollView)
         
@@ -82,7 +82,7 @@ extension LeftContainerView: NSTableViewDelegate, NSTableViewDataSource {
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         var cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "cellId"), owner: self)
         if cell == nil {
-            cell = ChatCell(frame: NSRect(x: 0, y: 0, width:900, height: 60))
+            cell = ChatCell(frame: NSRect(x: 0, y: 0, width:960, height: 60))
             cell!.identifier = NSUserInterfaceItemIdentifier(rawValue: "cellId")
         }
         (cell as! ChatCell).currentData = dataSource.data?[row]

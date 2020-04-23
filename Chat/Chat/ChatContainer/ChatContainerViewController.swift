@@ -22,25 +22,15 @@ class ChatContainerViewController: NSViewController {
     }
     
     func setupSubviews() -> Void {
-        leftContainerView = LeftContainerView(frame: NSRect(x: 0, y: 0, width: 950 / 3.5, height: 650))
+        leftContainerView = LeftContainerView(frame: NSRect(x: 0, y: 0, width: 960 / 3.5, height: 650))
         self.view.addSubview(leftContainerView)
         
-        rightContainerView = RightContainerView()
-        self.view.addSubview(rightContainerView)
-        
-        rightContainerView.snp.makeConstraints { (make) in
-            make.right.top.bottom.equalTo(0)
-            make.width.equalTo(self.view.frame.width / 4.0)
-        }
-        
-        middleContainerView = MiddleContainerView()
+        middleContainerView = MiddleContainerView(frame: NSRect(x: 960 / 3.5, y: 0, width: 440, height: 650))
         self.view.addSubview(middleContainerView)
         
-        middleContainerView.snp.makeConstraints { (make) in
-            make.top.bottom.equalTo(0)
-            make.left.equalTo(leftContainerView.snp.right).offset(0)
-            make.right.equalTo(rightContainerView.snp.left).offset(0)
-        }
+        rightContainerView = RightContainerView(frame: NSRect(x: (960 / 3.5 + 950 / 4), y: 0, width: 960 / 4, height: 650))
+        self.view.addSubview(rightContainerView)
+        
     }
     
 }
