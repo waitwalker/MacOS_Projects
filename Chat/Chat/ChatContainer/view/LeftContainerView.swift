@@ -49,24 +49,17 @@ class LeftContainerView: NSView {
         scrollView.hasVerticalScroller = true
         self.addSubview(scrollView)
         
-//        scrollView.snp.makeConstraints { (make) in
-//            make.left.right.top.equalTo(self)
-//            make.height.equalTo(650)
-//        }
-        
         let column = NSTableColumn(identifier: NSUserInterfaceItemIdentifier.init(rawValue: "chat_column"))
         column.title = "最近聊天"
-        tableView = NSTableView(frame: scrollView.bounds)
+        column.width = self.frame.width
+        tableView = NSTableView(frame: scrollView.frame)
         tableView.addTableColumn(column)
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.backgroundColor = NSColor.white
         // 去掉header
         tableView.headerView = nil
         scrollView.documentView = tableView
-        
-//        tableView.snp.makeConstraints { (make) in
-//            make.left.right.top.bottom.equalTo(self)
-//        }
     }
     
     
@@ -89,7 +82,7 @@ extension LeftContainerView: NSTableViewDelegate, NSTableViewDataSource {
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         var cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "cellId"), owner: self)
         if cell == nil {
-            cell = ChatCell(frame: NSRect(x: 0, y: 0, width: 270, height: 60))
+            cell = ChatCell(frame: NSRect(x: 0, y: 0, width:900, height: 60))
             cell!.identifier = NSUserInterfaceItemIdentifier(rawValue: "cellId")
         }
         (cell as! ChatCell).currentData = dataSource.data?[row]
@@ -107,13 +100,18 @@ class ChatCell: NSView {
     
     
     var headerImageView: NSImageView!
-    
     var nameLabel: NSTextField!
+    var timeLabel: NSTextField!
+    var recentLabel: NSTextField!
+    var unreadLabel: NSTextField!
     
     
     var currentData: RecectChatItemModel? {
         didSet {
-            
+            nameLabel.stringValue = (currentData?.user_name)!
+            timeLabel.stringValue = (currentData?.last_chat_time)!
+            recentLabel.stringValue = (currentData?.last_message)!
+            unreadLabel.stringValue = ("\(currentData?.unread_message_count ?? 0)")
         }
     }
     
@@ -138,6 +136,67 @@ class ChatCell: NSView {
         
         nameLabel = NSTextField()
         nameLabel.isEditable = false
+        nameLabel.textColor = NSColor.black
+        nameLabel.backgroundColor = NSColor.white
+        nameLabel.font = NSFont.systemFont(ofSize: 15)
+        nameLabel.sizeToFit()
+        nameLabel.isBordered = false
+        nameLabel.isBezeled = false
+        self.addSubview(nameLabel)
+        nameLabel.snp.makeConstraints { (make) in
+            make.left.equalTo(headerImageView.snp.right).offset(10)
+            make.top.equalTo(headerImageView.snp.top)
+        }
+        
+        timeLabel = NSTextField()
+        timeLabel.isEditable = false
+        timeLabel.textColor = NSColor.gray
+        timeLabel.backgroundColor = NSColor.white
+        timeLabel.isBordered = false
+        timeLabel.isBezeled = false
+        timeLabel.font = NSFont.systemFont(ofSize: 10)
+        timeLabel.alignment = NSTextAlignment.right
+        self.addSubview(timeLabel)
+        
+        timeLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(nameLabel)
+            make.right.equalTo(self).offset(-10)
+            make.width.equalTo(70)
+        }
+        
+        recentLabel = NSTextField()
+        recentLabel.isEditable = false
+        recentLabel.textColor = NSColor.black
+        recentLabel.font = NSFont.systemFont(ofSize: 10)
+        recentLabel.backgroundColor = NSColor.white
+        recentLabel.maximumNumberOfLines = 1
+        recentLabel.isBordered = false
+        recentLabel.isBezeled = false
+        recentLabel.sizeToFit()
+        self.addSubview(recentLabel)
+        recentLabel.snp.makeConstraints { (make) in
+            make.left.equalTo(headerImageView.snp.right).offset(10)
+            make.top.equalTo(nameLabel.snp.bottom).offset(5)
+            make.width.equalTo(160)
+        }
+        
+        unreadLabel = NSTextField()
+        unreadLabel.isEditable = false
+        unreadLabel.textColor = NSColor.black
+        unreadLabel.wantsLayer = true
+        unreadLabel.layer?.cornerRadius = 10.0
+        unreadLabel.backgroundColor = NSColor.gray.withAlphaComponent(0.1)
+        unreadLabel.isBordered = false
+        unreadLabel.isBezeled = false
+        unreadLabel.font = NSFont.systemFont(ofSize: 9)
+        unreadLabel.alignment = NSTextAlignment.center
+        self.addSubview(unreadLabel)
+        
+        unreadLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(timeLabel.snp.bottom).offset(10)
+            make.right.equalTo(self).offset(-10)
+            make.height.width.height.equalTo(20)
+        }
     }
     
     required init?(coder: NSCoder) {
