@@ -27,6 +27,8 @@
 		BFE1CB0A2450114F00F55BD3 /* ChatContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE1CB092450114F00F55BD3 /* ChatContainerViewController.swift */; };
 		BFE1CB0C2450137800F55BD3 /* MiddleContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE1CB0B2450137800F55BD3 /* MiddleContainerView.swift */; };
 		BFE1CB0E2450138C00F55BD3 /* RightContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE1CB0D2450138C00F55BD3 /* RightContainerView.swift */; };
+		BFE4F92324528D1B00B88914 /* CollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE4F92124528D1B00B88914 /* CollectionViewItem.swift */; };
+		BFE4F92424528D1B00B88914 /* CollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFE4F92224528D1B00B88914 /* CollectionViewItem.xib */; };
 		BFEC0E14245133A00054829C /* RecectChatListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEC0E13245133A00054829C /* RecectChatListModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +58,8 @@
 		BFE1CB092450114F00F55BD3 /* ChatContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatContainerViewController.swift; sourceTree = "<group>"; };
 		BFE1CB0B2450137800F55BD3 /* MiddleContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleContainerView.swift; sourceTree = "<group>"; };
 		BFE1CB0D2450138C00F55BD3 /* RightContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightContainerView.swift; sourceTree = "<group>"; };
+		BFE4F92124528D1B00B88914 /* CollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewItem.swift; sourceTree = "<group>"; };
+		BFE4F92224528D1B00B88914 /* CollectionViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewItem.xib; sourceTree = "<group>"; };
 		BFEC0E13245133A00054829C /* RecectChatListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecectChatListModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -189,6 +193,8 @@
 				BFE1CB0724500FF600F55BD3 /* LeftContainerView.swift */,
 				BFE1CB0B2450137800F55BD3 /* MiddleContainerView.swift */,
 				BFE1CB0D2450138C00F55BD3 /* RightContainerView.swift */,
+				BFE4F92124528D1B00B88914 /* CollectionViewItem.swift */,
+				BFE4F92224528D1B00B88914 /* CollectionViewItem.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -272,6 +278,7 @@
 				BF292F07244ED3F300676E51 /* Assets.xcassets in Resources */,
 				BFE1CAE9244FD1E600F55BD3 /* SearchPopoverViewController.xib in Resources */,
 				BF292F0A244ED3F300676E51 /* Main.storyboard in Resources */,
+				BFE4F92424528D1B00B88914 /* CollectionViewItem.xib in Resources */,
 				BFE1CAF1244FDD3500F55BD3 /* AddNewChatViewController.xib in Resources */,
 				BFE1CB05244FF8A000F55BD3 /* DynamicContainerViewController.xib in Resources */,
 				BFE1CB01244FF89200F55BD3 /* FriendContainerViewController.xib in Resources */,
@@ -335,6 +342,7 @@
 				BFE1CB0824500FF600F55BD3 /* LeftContainerView.swift in Sources */,
 				BFE1CAE8244FD1E600F55BD3 /* SearchPopoverViewController.swift in Sources */,
 				BFE1CB04244FF8A000F55BD3 /* DynamicContainerViewController.swift in Sources */,
+				BFE4F92324528D1B00B88914 /* CollectionViewItem.swift in Sources */,
 				BFE1CAE5244FC9E600F55BD3 /* ToolbarContainerView.swift in Sources */,
 				BF292F18244EDF3100676E51 /* SearchContainerView.swift in Sources */,
 				BFEC0E14245133A00054829C /* RecectChatListModel.swift in Sources */,

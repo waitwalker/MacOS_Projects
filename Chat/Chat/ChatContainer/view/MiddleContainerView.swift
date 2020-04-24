@@ -8,6 +8,10 @@
 
 import Cocoa
 
+extension NSUserInterfaceItemIdentifier {
+    static let reusedMiddleItemId = NSUserInterfaceItemIdentifier(rawValue: "reusedMiddleItemId")
+}
+
 class MiddleContainerView: NSView {
 
     var leftBorder: NSView!
@@ -21,7 +25,7 @@ class MiddleContainerView: NSView {
     var bottomContainerView: NSView!
     
     var containerScrollView: NSScrollView!
-    var collectionView: NSCollectionView!
+    var bottomCollectionView: NSCollectionView!
     
     
 
@@ -96,17 +100,18 @@ class MiddleContainerView: NSView {
         containerScrollView.backgroundColor = NSColor.yellow
         bottomContainerView.addSubview(containerScrollView)
         
-        collectionView = NSCollectionView(frame: NSRect.init(x: 0, y: 0, width: frame.size.width, height: frame.size.height))
-        let flowLayOut = NSCollectionViewFlowLayout.init()
-        flowLayOut.itemSize = CGSize(width: 40, height: 40)
+        let flowLayOut = NSCollectionViewFlowLayout()
+        //flowLayOut.itemSize = CGSize(width: 40, height: 40)
         flowLayOut.minimumLineSpacing = 10
         flowLayOut.minimumInteritemSpacing = 10
         flowLayOut.scrollDirection = .horizontal
-        collectionView.collectionViewLayout = flowLayOut
-        collectionView.register(NSNib.init(nibNamed: "FPTimeLineCollectionItem", bundle: nil), forItemWithIdentifier: "FPTimeLineCollectionItem")
-        containerScrollView.contentView = collectionView
-        collectionView.dataSource = self
-        ollectionView.delegate = self
+        bottomCollectionView = NSCollectionView(frame: containerScrollView.bounds)
+        bottomCollectionView.backgroundColors = [NSColor.white]
+        bottomCollectionView.collectionViewLayout = flowLayOut
+        containerScrollView.documentView = bottomCollectionView
+        bottomCollectionView.dataSource = self
+        bottomCollectionView.delegate = self
+        bottomCollectionView.register(CollectionViewItem.self, forItemWithIdentifier: NSUserInterfaceItemIdentifier(rawValue: "UserCollectionViewItem"))
     }
     
     @objc func foldButtonAction() -> Void {
@@ -156,8 +161,22 @@ extension MiddleContainerView: NSTableViewDelegate, NSTableViewDataSource {
     
 }
 
-class CollectionViewItem: NSCollectionViewItem {
-    override func viewDidLoad() {
-        super.viewDidLoad()
+extension MiddleContainerView: NSCollectionViewDataSource, NSCollectionViewDelegate, NSCollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 20
+    }
+    
+    func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
+        let item = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "UserCollectionViewItem"), for: indexPath)
+        return item
+    }
+    
+    func numberOfSections(in collectionView: NSCollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> NSSize {
+        return NSSize(width: 30, height: 30)
     }
 }
+
