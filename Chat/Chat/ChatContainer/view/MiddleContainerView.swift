@@ -102,7 +102,7 @@ class MiddleContainerView: NSView {
         
         let flowLayOut = NSCollectionViewFlowLayout()
         //flowLayOut.itemSize = CGSize(width: 40, height: 40)
-        flowLayOut.minimumLineSpacing = 10
+        flowLayOut.minimumLineSpacing = 20
         flowLayOut.minimumInteritemSpacing = 10
         flowLayOut.scrollDirection = .horizontal
         bottomCollectionView = NSCollectionView(frame: containerScrollView.bounds)
@@ -161,13 +161,15 @@ extension MiddleContainerView: NSTableViewDelegate, NSTableViewDataSource {
     
 }
 
-extension MiddleContainerView: NSCollectionViewDataSource, NSCollectionViewDelegate, NSCollectionViewDelegateFlowLayout {
+extension MiddleContainerView: NSCollectionViewDataSource, NSCollectionViewDelegate, NSCollectionViewDelegateFlowLayout, CollectionViewItemDelegate {
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return 8
     }
     
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
-        let item = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "UserCollectionViewItem"), for: indexPath)
+        let item = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "UserCollectionViewItem"), for: indexPath) as! CollectionViewItem
+        item.currentIndexPath = indexPath
+        item.delegate = self
         return item
     }
     
@@ -177,6 +179,43 @@ extension MiddleContainerView: NSCollectionViewDataSource, NSCollectionViewDeleg
     
     func collectionView(_ collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> NSSize {
         return NSSize(width: 30, height: 30)
+    }
+    
+    func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
+        print("select current item:\(indexPaths)")
+    }
+    
+    func didSelect(_ indexPath: IndexPath?) {
+        print("current indexPath:\(indexPath)")
+        switch indexPath?.item {
+        case 0:
+            print("点击的是:\(indexPath?.item)")
+            break
+        case 1:
+            print("点击的是:\(indexPath?.item)")
+            break
+        case 2:
+            print("点击的是:\(indexPath?.item)")
+            break
+        case 3:
+            print("点击的是:\(indexPath?.item)")
+            break
+        case 4:
+            print("点击的是:\(indexPath?.item)")
+            break
+        case 5:
+            print("点击的是:\(indexPath?.item)")
+            break
+        case 6:
+            print("点击的是:\(indexPath?.item)")
+            break
+        case 7:
+            print("点击的是:\(indexPath?.item)")
+            break
+        
+        default:
+            break
+        }
     }
 }
 
