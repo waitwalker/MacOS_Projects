@@ -27,6 +27,8 @@ class MiddleContainerView: NSView {
     var containerScrollView: NSScrollView!
     var bottomCollectionView: NSCollectionView!
     
+    var inputTextView: NSTextView!
+    
     
 
     override init(frame frameRect: NSRect) {
@@ -112,6 +114,13 @@ class MiddleContainerView: NSView {
         bottomCollectionView.dataSource = self
         bottomCollectionView.delegate = self
         bottomCollectionView.register(CollectionViewItem.self, forItemWithIdentifier: NSUserInterfaceItemIdentifier(rawValue: "UserCollectionViewItem"))
+        
+        inputTextView = NSTextView(frame: NSRect(x: 2, y: 0, width: self.bounds.width - 4, height: 150))
+        inputTextView.backgroundColor = NSColor.cyan
+        inputTextView.textColor = NSColor.brown
+        inputTextView.font = NSFont.systemFont(ofSize: 20)
+        inputTextView.delegate = self
+        self.addSubview(inputTextView)
     }
     
     @objc func foldButtonAction() -> Void {
@@ -216,6 +225,12 @@ extension MiddleContainerView: NSCollectionViewDataSource, NSCollectionViewDeleg
         default:
             break
         }
+    }
+}
+
+extension MiddleContainerView: NSTextViewDelegate {
+    func textDidBeginEditing(_ notification: Notification) {
+        
     }
 }
 

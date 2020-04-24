@@ -9,8 +9,15 @@
 import Cocoa
 import Alamofire
 
+/*
+ * name: LeftContainerView
+ * description: 左边的容器
+ * author: waitwalker
+ * date: 4.24
+ */
 class LeftContainerView: NSView {
     
+    // 滚动容器
     var scrollView: NSScrollView!
     var tableView: NSTableView!
     
@@ -74,6 +81,12 @@ class LeftContainerView: NSView {
     
 }
 
+/*
+ * name:
+ * description: table view 代理 && 数据源
+ * author: waitwalker
+ * date: 4.24
+ */
 extension LeftContainerView: NSTableViewDelegate, NSTableViewDataSource {
     func numberOfRows(in tableView: NSTableView) -> Int {
         return dataSource.data == nil ? 0 : (dataSource.data?.count)!
@@ -82,10 +95,10 @@ extension LeftContainerView: NSTableViewDelegate, NSTableViewDataSource {
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         var cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "cellId"), owner: self)
         if cell == nil {
-            cell = ChatCell(frame: NSRect(x: 0, y: 0, width:960, height: 60))
+            cell = RecentChatItemCell(frame: NSRect(x: 0, y: 0, width:960, height: 60))
             cell!.identifier = NSUserInterfaceItemIdentifier(rawValue: "cellId")
         }
-        (cell as! ChatCell).currentData = dataSource.data?[row]
+        (cell as! RecentChatItemCell).currentData = dataSource.data?[row]
         return cell
     }
     
@@ -94,10 +107,19 @@ extension LeftContainerView: NSTableViewDelegate, NSTableViewDataSource {
         return 60
     }
     
+    func tableView(_ tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {
+        return TableRowView()
+    }
+    
 }
 
-class ChatCell: NSView {
-    
+/*
+ * name: RecentChatItemCell
+ * description: 最近聊天列表 cell 封装
+ * author: waitwalker
+ * date: 4.24
+ */
+class RecentChatItemCell: NSView {
     
     var headerImageView: NSImageView!
     var nameLabel: NSTextField!
@@ -112,6 +134,7 @@ class ChatCell: NSView {
             timeLabel.stringValue = (currentData?.last_chat_time)!
             recentLabel.stringValue = (currentData?.last_message)!
             unreadLabel.stringValue = ("\(currentData?.unread_message_count ?? 0)")
+            headerImageView.image = NSImage(named: "\(currentData?.header ?? "header_0")")
         }
     }
     
@@ -137,7 +160,7 @@ class ChatCell: NSView {
         nameLabel = NSTextField()
         nameLabel.isEditable = false
         nameLabel.textColor = NSColor.black
-        nameLabel.backgroundColor = NSColor.white
+        nameLabel.backgroundColor = NSColor.clear
         nameLabel.font = NSFont.systemFont(ofSize: 15)
         nameLabel.sizeToFit()
         nameLabel.isBordered = false
@@ -151,7 +174,7 @@ class ChatCell: NSView {
         timeLabel = NSTextField()
         timeLabel.isEditable = false
         timeLabel.textColor = NSColor.gray
-        timeLabel.backgroundColor = NSColor.white
+        timeLabel.backgroundColor = NSColor.clear
         timeLabel.isBordered = false
         timeLabel.isBezeled = false
         timeLabel.font = NSFont.systemFont(ofSize: 10)
@@ -168,7 +191,7 @@ class ChatCell: NSView {
         recentLabel.isEditable = false
         recentLabel.textColor = NSColor.black
         recentLabel.font = NSFont.systemFont(ofSize: 10)
-        recentLabel.backgroundColor = NSColor.white
+        recentLabel.backgroundColor = NSColor.clear
         recentLabel.maximumNumberOfLines = 1
         recentLabel.isBordered = false
         recentLabel.isBezeled = false
@@ -204,4 +227,21 @@ class ChatCell: NSView {
     }
     
     
+}
+
+/*
+ * name: TableRowView
+ * description: cell 选中背景色重写
+ * author: waitwalker
+ * date: 4.24
+ */
+class TableRowView: NSTableRowView {
+    override func drawSelection(in dirtyRect: NSRect) {
+        if self.selectionHighlightStyle != .none {
+            let selectRect = NSInsetRect(self.bounds, 0, 0)
+            NSColor.gray.withAlphaComponent(0.2).setFill()
+            let selectionPath = NSBezierPath(roundedRect: selectRect, xRadius: 0, yRadius: 0)
+            selectionPath.fill()
+        }
+    }
 }

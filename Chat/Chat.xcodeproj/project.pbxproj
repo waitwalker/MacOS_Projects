@@ -29,6 +29,7 @@
 		BFE1CB0E2450138C00F55BD3 /* RightContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE1CB0D2450138C00F55BD3 /* RightContainerView.swift */; };
 		BFE4F92324528D1B00B88914 /* CollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE4F92124528D1B00B88914 /* CollectionViewItem.swift */; };
 		BFE4F92424528D1B00B88914 /* CollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFE4F92224528D1B00B88914 /* CollectionViewItem.xib */; };
+		BFE4F9262452DF6300B88914 /* BubbleContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE4F9252452DF6300B88914 /* BubbleContainerView.swift */; };
 		BFEC0E14245133A00054829C /* RecectChatListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEC0E13245133A00054829C /* RecectChatListModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,7 @@
 		BFE1CB0D2450138C00F55BD3 /* RightContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightContainerView.swift; sourceTree = "<group>"; };
 		BFE4F92124528D1B00B88914 /* CollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewItem.swift; sourceTree = "<group>"; };
 		BFE4F92224528D1B00B88914 /* CollectionViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewItem.xib; sourceTree = "<group>"; };
+		BFE4F9252452DF6300B88914 /* BubbleContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleContainerView.swift; sourceTree = "<group>"; };
 		BFEC0E13245133A00054829C /* RecectChatListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecectChatListModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -134,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				BF7CEB26245162B5000CD4E0 /* NSTextFieldExtension.swift */,
+				BFE4F9252452DF6300B88914 /* BubbleContainerView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 				BFEC0E14245133A00054829C /* RecectChatListModel.swift in Sources */,
 				BFE1CAF0244FDD3500F55BD3 /* AddNewChatViewController.swift in Sources */,
 				BF292F13244ED4AD00676E51 /* MainWindowController.swift in Sources */,
+				BFE4F9262452DF6300B88914 /* BubbleContainerView.swift in Sources */,
 				BFE1CB0E2450138C00F55BD3 /* RightContainerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
