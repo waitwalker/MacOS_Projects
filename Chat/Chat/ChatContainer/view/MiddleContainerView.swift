@@ -20,7 +20,8 @@ class MiddleContainerView: NSView {
     var tableView: NSTableView!
     var bottomContainerView: NSView!
     
-    
+    var containerScrollView: NSScrollView!
+    var collectionView: NSCollectionView!
     
     
 
@@ -91,6 +92,21 @@ class MiddleContainerView: NSView {
         bottomContainerView.layer?.backgroundColor = NSColor.red.cgColor
         self.addSubview(bottomContainerView)
         
+        containerScrollView = NSScrollView(frame: bottomContainerView.bounds)
+        containerScrollView.backgroundColor = NSColor.yellow
+        bottomContainerView.addSubview(containerScrollView)
+        
+        collectionView = NSCollectionView(frame: NSRect.init(x: 0, y: 0, width: frame.size.width, height: frame.size.height))
+        let flowLayOut = NSCollectionViewFlowLayout.init()
+        flowLayOut.itemSize = CGSize(width: 40, height: 40)
+        flowLayOut.minimumLineSpacing = 10
+        flowLayOut.minimumInteritemSpacing = 10
+        flowLayOut.scrollDirection = .horizontal
+        collectionView.collectionViewLayout = flowLayOut
+        collectionView.register(NSNib.init(nibNamed: "FPTimeLineCollectionItem", bundle: nil), forItemWithIdentifier: "FPTimeLineCollectionItem")
+        containerScrollView.contentView = collectionView
+        collectionView.dataSource = self
+        ollectionView.delegate = self
     }
     
     @objc func foldButtonAction() -> Void {
@@ -138,4 +154,10 @@ extension MiddleContainerView: NSTableViewDelegate, NSTableViewDataSource {
         return 60
     }
     
+}
+
+class CollectionViewItem: NSCollectionViewItem {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
 }
