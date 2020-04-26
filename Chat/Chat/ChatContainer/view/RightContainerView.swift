@@ -10,8 +10,19 @@ import Cocoa
 
 class RightContainerView: NSView {
 
+    var bubbleView: BubbleContainerView!
+    
+    
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
+        self.wantsLayer = true
+        self.layer?.backgroundColor = NSColor.yellow.cgColor
+        setupSubviews()
+    }
+    
+    func setupSubviews() -> Void {
+        bubbleView = BubbleContainerView(frame: NSRect(x: 100, y: 100, width: 100, height: 100), position: 1)
+        self.addSubview(bubbleView)
     }
     
     required init?(coder: NSCoder) {

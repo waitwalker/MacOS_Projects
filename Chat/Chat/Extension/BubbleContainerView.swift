@@ -10,15 +10,29 @@ import Cocoa
 
 // https://blog.csdn.net/quanhaoH/article/details/103634614
 class BubbleContainerView: NSView {
-
+    
+    
+    private var currentPosition: UInt = 0
+    
+    init(frame: NSRect, position: UInt) {
+        super.init(frame: frame)
+        currentPosition = position
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
-        
+        draw(position: currentPosition)
+    }
+    
+    public func draw(position: UInt) -> Void {
         var bezierPath: NSBezierPath = NSBezierPath()
-        bezierPath = makeBubble(bezierPath, NSRect(x: 10, y: 0.0, width: self.bounds.size.width - 10.0, height: self.bounds.size.height - 10.0), 8.0, 1)
+        bezierPath = makeBubble(bezierPath, NSRect(x: 10, y: 10.0, width: self.bounds.size.width - 10.0, height: self.bounds.size.height - 10.0), 8.0, position)
         NSColor.gray.withAlphaComponent(0.3).set()
         bezierPath.fill()
-        
         NSColor.green.set()
         bezierPath.stroke()
     }
@@ -29,15 +43,13 @@ class BubbleContainerView: NSView {
      * author: waitwalker
      * date: 4.24
      */
-    func makeBubble(_ bezierPath: NSBezierPath, _ bubbleRect: NSRect, _ corner: CGFloat, _ direction: UInt) -> NSBezierPath {
+    private func makeBubble(_ bezierPath: NSBezierPath, _ bubbleRect: NSRect, _ corner: CGFloat, _ direction: UInt) -> NSBezierPath {
         
         // 基本偏角
         let baseAngle: CGFloat = 40.0
         let cornerOffWidth: CGFloat = 10.0;
         
-        
         var angle: CGFloat = 10.0
-        var midCorner: Bool = false
         
         // 绘制宽高
         let rw: CGFloat = bubbleRect.width
@@ -59,7 +71,6 @@ class BubbleContainerView: NSView {
         let leftBottomX: NSPoint = NSPoint(x: leftBottom.x + radius, y: leftBottom.y)
         let leftBottomY: NSPoint = NSPoint(x: leftBottom.x, y: leftBottom.y + radius)
         
-        
         let rightBottom: NSPoint = NSPoint(x: bubbleRect.maxX, y: bubbleRect.minY)
         let rightBottomX: NSPoint = NSPoint(x: rightBottom.x - radius, y: rightBottom.y)
         let rightBottomY: NSPoint = NSPoint(x: rightBottom.x, y: rightBottom.y + radius)
@@ -78,7 +89,6 @@ class BubbleContainerView: NSView {
                 angle = 40.0
             } else {
                 angle = 0
-                midCorner = true
             }
         } else if minDiameter >= 30.0 && minDiameter <= 50.0 {
             if rate > 0.2 && rate < 0.4 {
@@ -329,7 +339,7 @@ class BubbleContainerView: NSView {
     
     
     // 左下半圆
-    func drawLeftBottomPart(_ cornerCenter: NSPoint, _ radius: CGFloat, _ bezierPath: NSBezierPath) -> Void {
+    private func drawLeftBottomPart(_ cornerCenter: NSPoint, _ radius: CGFloat, _ bezierPath: NSBezierPath) -> Void {
         bezierPath.appendArc(
             withCenter: cornerCenter,
             radius: radius,
@@ -339,7 +349,7 @@ class BubbleContainerView: NSView {
     }
     
     // 左上半圆
-    func drawLeftTopPart(_ cornerCenter: NSPoint, _ radius: CGFloat, _ bezierPath: NSBezierPath) -> Void {
+    private func drawLeftTopPart(_ cornerCenter: NSPoint, _ radius: CGFloat, _ bezierPath: NSBezierPath) -> Void {
         bezierPath.appendArc(
             withCenter: cornerCenter,
             radius: radius,
@@ -349,7 +359,7 @@ class BubbleContainerView: NSView {
     }
     
     // 右上半圆
-    func drawRightTopPart(_ cornerCenter: NSPoint, _ radius: CGFloat, _ bezierPath: NSBezierPath) -> Void {
+    private func drawRightTopPart(_ cornerCenter: NSPoint, _ radius: CGFloat, _ bezierPath: NSBezierPath) -> Void {
         bezierPath.appendArc(
             withCenter: cornerCenter,
             radius: radius,
@@ -359,7 +369,7 @@ class BubbleContainerView: NSView {
     }
     
     // 右下半圆
-    func drawRightBottomPart(_ cornerCenter: NSPoint, _ radius: CGFloat, _ bezierPath: NSBezierPath) -> Void {
+    private func drawRightBottomPart(_ cornerCenter: NSPoint, _ radius: CGFloat, _ bezierPath: NSBezierPath) -> Void {
         bezierPath.appendArc(
             withCenter: cornerCenter,
             radius: radius,

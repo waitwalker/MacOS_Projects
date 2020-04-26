@@ -28,7 +28,7 @@ class ChatContainerViewController: NSViewController {
         middleContainerView = MiddleContainerView(frame: NSRect(x: 960 / 3.5, y: 0, width: 440, height: 650))
         self.view.addSubview(middleContainerView)
         
-        rightContainerView = RightContainerView(frame: NSRect(x: (960 / 3.5 + 950 / 4), y: 0, width: 960 / 4, height: 650))
+        rightContainerView = RightContainerView(frame: NSRect(x: (960 / 3.5 + 440.0), y: 0, width: 960 / 4, height: 650))
         self.view.addSubview(rightContainerView)
         
     }
