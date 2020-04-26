@@ -13,6 +13,14 @@ class BubbleContainerView: NSView {
 
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
+        
+        var bezierPath: NSBezierPath = NSBezierPath()
+        bezierPath = makeBubble(bezierPath, NSRect(x: 10, y: 0.0, width: self.bounds.size.width - 10.0, height: self.bounds.size.height - 10.0), 8.0, 1)
+        NSColor.gray.withAlphaComponent(0.3).set()
+        bezierPath.fill()
+        
+        NSColor.green.set()
+        bezierPath.stroke()
     }
  
     /*
@@ -84,7 +92,7 @@ class BubbleContainerView: NSView {
             if corner >= 10.0 && corner <= 15.0 {
                 angle = 40.0
             } else if corner < 10.0 {
-                angle = 10.0
+                angle = 0.0
             }
         }
         
@@ -130,7 +138,7 @@ class BubbleContainerView: NSView {
                     autoOffUpHeight = autoOffUpHeight > 10.0 ? 10.0 : autoOffUpHeight
                     autoOffDownHeight = (rh - 2 * radius) - autoOffUpHeight;
                     APoint = NSPoint(x: rightTopY.x, y: rightTopY.y - autoOffUpHeight)
-                    BPoint = NSPoint(x: rightBottomY.x, y: rightBottomY.y + autoOffDownHeight - 10)
+                    BPoint = NSPoint(x: rightBottomY.x, y: rightBottomY.y + autoOffDownHeight - 10.0)
                 }
                 
                 ABNodePoint = NSPoint(x: rightTopY.x + cornerOffWidth, y: (APoint.y + BPoint.y) / 2.0)
@@ -204,12 +212,11 @@ class BubbleContainerView: NSView {
             bezierPath.move(to: ABNodePoint)
             if angle != 0.0 {
                 bezierPath.line(to: lBottomAPoint)
-                bezierPath.appendArc(
-                    withCenter: leftBottomCenter,
-                    radius: radius,
-                    startAngle: -(90.0 + baseAngle + angle),
-                    endAngle: 180.0,
-                    clockwise: true)
+                bezierPath.appendArc(withCenter: leftBottomCenter,
+                                     radius: radius,
+                                     startAngle: -(90.0 + baseAngle + angle),
+                                     endAngle: 180.0,
+                                     clockwise: true)
             } else {
                 bezierPath.line(to: APoint)
             }
@@ -219,12 +226,11 @@ class BubbleContainerView: NSView {
             drawRightBottomPart(rightBottomCenter, radius, bezierPath)
             
             if angle != 0.0 {
-                bezierPath.appendArc(
-                    withCenter: leftBottomCenter,
-                    radius: radius,
-                    startAngle: -90.0,
-                    endAngle: -(90.0 + baseAngle),
-                    clockwise: true)
+                bezierPath.appendArc(withCenter: leftBottomCenter,
+                                     radius: radius,
+                                     startAngle: -90.0,
+                                     endAngle: -(90.0 + baseAngle),
+                                     clockwise: true)
             } else {
                 drawLeftBottomPart(leftBottomCenter, radius, bezierPath)
                 bezierPath.line(to: BPoint)
@@ -235,12 +241,11 @@ class BubbleContainerView: NSView {
             bezierPath.move(to: ABNodePoint)
             if angle != 0.0 {
                 bezierPath.line(to: rTopBPoint)
-                bezierPath.appendArc(
-                    withCenter: rightTopCenter,
-                    radius: radius,
-                    startAngle: (90.0 - baseAngle - angle),
-                    endAngle: 0.0,
-                    clockwise: true)
+                bezierPath.appendArc(withCenter: rightTopCenter,
+                                     radius: radius,
+                                     startAngle: (90.0 - baseAngle - angle),
+                                     endAngle: 0.0,
+                                     clockwise: true)
             } else {
                 bezierPath.line(to: BPoint)
             }
@@ -249,13 +254,11 @@ class BubbleContainerView: NSView {
             drawLeftBottomPart(leftBottomCenter, radius, bezierPath)
             drawLeftTopPart(leftTopCenter, radius, bezierPath)
             if angle != 0.0 {
-                bezierPath.appendArc(
-                    withCenter:
-                    rightTopCenter,
-                    radius: radius,
-                    startAngle: 90.0,
-                    endAngle: 90.0 - baseAngle,
-                    clockwise: true)
+                bezierPath.appendArc(withCenter:rightTopCenter,
+                                     radius: radius,
+                                     startAngle: 90.0,
+                                     endAngle: 90.0 - baseAngle,
+                                     clockwise: true)
             } else {
                 drawRightTopPart(rightTopCenter, radius, bezierPath)
                 bezierPath.line(to: APoint)
@@ -266,13 +269,11 @@ class BubbleContainerView: NSView {
             bezierPath.move(to: ABNodePoint)
             if angle != 0.0 {
                 bezierPath.line(to: rBottomBPoint)
-                bezierPath.appendArc(
-                withCenter:
-                rightTopCenter,
-                radius: radius,
-                startAngle: -(90.0 - baseAngle),
-                endAngle: -90.0,
-                clockwise: true)
+                bezierPath.appendArc(withCenter:rightBottomCenter,
+                                     radius: radius,
+                                     startAngle: -(90.0 - baseAngle),
+                                     endAngle: -90.0,
+                                     clockwise: true)
             } else {
                 bezierPath.line(to: BPoint)
                 drawRightBottomPart(rightBottomCenter, radius, bezierPath)
