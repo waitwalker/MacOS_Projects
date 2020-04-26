@@ -21,14 +21,14 @@ class BubbleContainerView: NSView {
      * author: waitwalker
      * date: 4.24
      */
-    func makeBubble(_ bezierPath: NSBezierPath, _ bubbleRect: NSRect, _ cornerRadius: CGFloat, _ direction: UInt) -> NSBezierPath {
+    func makeBubble(_ bezierPath: NSBezierPath, _ bubbleRect: NSRect, _ corner: CGFloat, _ direction: UInt) -> NSBezierPath {
         
         // 基本偏角
         let baseAngle: CGFloat = 40.0
         let cornerOffWidth: CGFloat = 10.0;
         
         
-        let angle: CGFloat = 10.0
+        var angle: CGFloat = 10.0
         var midCorner: Bool = false
         
         // 绘制宽高
@@ -38,31 +38,333 @@ class BubbleContainerView: NSView {
         let minDiameter: CGFloat = rw > rh ? rh : rw
         
         // 半径
-        var raidus: CGFloat = 0.0
+        var radius: CGFloat = 0.0
         
-        if cornerRadius > 0.0 {
-            raidus = cornerRadius > minDiameter / 2.0 ? minDiameter / 2.0 : cornerRadius;
+        if corner > 0.0 {
+            radius = corner > minDiameter / 2.0 ? minDiameter / 2.0 : corner;
         }
         
         // 最小长度与圆角比
-        let rate: CGFloat = raidus / minDiameter
+        let rate: CGFloat = radius / minDiameter
         
         let leftBottom: NSPoint = NSPoint(x: bubbleRect.minX, y: bubbleRect.minY)
-        let leftBottomX: NSPoint = NSPoint(x: leftBottom.x + raidus, y: leftBottom.y)
-        let leftBottomY: NSPoint = NSPoint(x: leftBottom.x, y: leftBottom.y + raidus)
+        let leftBottomX: NSPoint = NSPoint(x: leftBottom.x + radius, y: leftBottom.y)
+        let leftBottomY: NSPoint = NSPoint(x: leftBottom.x, y: leftBottom.y + radius)
         
         
         let rightBottom: NSPoint = NSPoint(x: bubbleRect.maxX, y: bubbleRect.minY)
-        let rightBottomX: NSPoint = NSPoint(x: rightBottom.x - raidus, y: rightBottom.y)
-        let rightBottomY: NSPoint = NSPoint(x: rightBottom.x, y: rightBottom.y + raidus)
+        let rightBottomX: NSPoint = NSPoint(x: rightBottom.x - radius, y: rightBottom.y)
+        let rightBottomY: NSPoint = NSPoint(x: rightBottom.x, y: rightBottom.y + radius)
         
         let rightTop: NSPoint = NSPoint(x: bubbleRect.maxX, y: bubbleRect.maxY)
-        let rightTopX: NSPoint = NSPoint(x: rightTop.x - raidus, y: rightTop.y)
-        let rightTopY: NSPoint = NSPoint(x: rightTop.x, y: rightTop.y - raidus)
+        let rightTopX: NSPoint = NSPoint(x: rightTop.x - radius, y: rightTop.y)
+        let rightTopY: NSPoint = NSPoint(x: rightTop.x, y: rightTop.y - radius)
         
         let leftTop: NSPoint = NSPoint(x: bubbleRect.minX, y: bubbleRect.maxY)
-        let leftTopX: NSPoint = NSPoint(x: leftTop.x + raidus, y: leftTop.y)
-        let leftTopY: NSPoint = NSPoint(x: leftTop.x, y: leftTop.y - raidus)
+        let leftTopX: NSPoint = NSPoint(x: leftTop.x + radius, y: leftTop.y)
+        let leftTopY: NSPoint = NSPoint(x: leftTop.x, y: leftTop.y - radius)
         
+        // 最小高度在30以下,只需要在左或右画即可
+        if minDiameter < 30 {
+            if rate > 0.33 && rate <= 0.5 {
+                angle = 40.0
+            } else {
+                angle = 0
+                midCorner = true
+            }
+        } else if minDiameter >= 30.0 && minDiameter <= 50.0 {
+            if rate > 0.2 && rate < 0.4 {
+                angle = 40.0
+            } else if rate > 0.4 && rate <= 0.5 {
+                angle = 10.0 //直角
+            } else {
+                angle = 0.0
+            }
+        } else {
+            if corner >= 10.0 && corner <= 15.0 {
+                angle = 40.0
+            } else if corner < 10.0 {
+                angle = 10.0
+            }
+        }
+        
+        var ABNodePoint: NSPoint = NSPoint(x: 0, y: 0)
+        var APoint: NSPoint = NSPoint(x: 0, y: 0)
+        var BPoint: NSPoint = NSPoint(x: 0, y: 0)
+        
+        var autoOffUpHeight: CGFloat = 0.0
+        var autoOffDownHeight: CGFloat = 0.0
+        
+        switch direction {
+        case 2: //左下
+            if angle == 10.0 || angle == 40.0 {
+                ABNodePoint = NSPoint(x: leftBottom.x - cornerOffWidth, y: leftBottom.y)
+            } else {
+                if rh <= 30.0 {
+                    autoOffDownHeight = (rh - 2 * radius - 10.0) / 2.0
+                    autoOffUpHeight = autoOffDownHeight
+                    APoint = NSPoint(x: leftTopY.x, y: leftTopY.y - autoOffUpHeight)
+                    BPoint = NSPoint(x: leftBottomY.x, y: leftBottomY.y + autoOffDownHeight)
+                } else {
+                    autoOffDownHeight = (rh - 2 * radius) / 30.0
+                    autoOffDownHeight = autoOffDownHeight > 10.0 ? 10.0 : autoOffDownHeight
+                    autoOffUpHeight = (rh - 2 * radius) - autoOffDownHeight;
+                    APoint = NSPoint(x: leftTopY.x, y: leftTopY.y - autoOffUpHeight + 10.0)
+                    BPoint = NSPoint(x: leftBottomY.x, y: leftBottomY.y + autoOffDownHeight)
+                }
+                
+                ABNodePoint = NSPoint(x: leftBottom.x - cornerOffWidth, y: (APoint.y + BPoint.y) / 2.0)
+            }
+            break
+        case 3: //右上
+            if angle == 10.0 || angle == 40.0 {
+                ABNodePoint = NSPoint(x: rightTop.x + cornerOffWidth, y: rightTop.y)
+            } else {
+                if rh <= 30.0 {
+                    autoOffDownHeight = (rh - 2 * radius - 10.0) / 2.0
+                    autoOffUpHeight = autoOffDownHeight
+                    APoint = NSPoint(x: rightTopY.x, y: rightTopY.y - autoOffDownHeight)
+                    BPoint = NSPoint(x: rightBottomY.x, y: rightBottomY.y + autoOffUpHeight)
+                } else {
+                    autoOffUpHeight = (rh - 2 * radius) / 30.0
+                    autoOffUpHeight = autoOffUpHeight > 10.0 ? 10.0 : autoOffUpHeight
+                    autoOffDownHeight = (rh - 2 * radius) - autoOffUpHeight;
+                    APoint = NSPoint(x: rightTopY.x, y: rightTopY.y - autoOffUpHeight)
+                    BPoint = NSPoint(x: rightBottomY.x, y: rightBottomY.y + autoOffDownHeight - 10)
+                }
+                
+                ABNodePoint = NSPoint(x: rightTopY.x + cornerOffWidth, y: (APoint.y + BPoint.y) / 2.0)
+            }
+            break
+        case 4: //右下
+            if angle == 10.0 || angle == 40.0 {
+                ABNodePoint = NSPoint(x: rightBottom.x + cornerOffWidth, y: rightBottom.y)
+            } else {
+                if rh <= 30.0 {
+                    autoOffDownHeight = (rh - 2 * radius - 10.0) / 2.0
+                    autoOffUpHeight = autoOffDownHeight
+                    APoint = NSPoint(x: rightTopY.x, y: rightTopY.y - autoOffUpHeight)
+                    BPoint = NSPoint(x: rightBottomY.x, y: rightBottomY.y + autoOffDownHeight)
+                } else {
+                    autoOffDownHeight = (rh - 2 * radius) / 30.0
+                    autoOffDownHeight = autoOffUpHeight > 10.0 ? 10.0 : autoOffDownHeight
+                    autoOffUpHeight = (rh - 2 * radius) - autoOffDownHeight;
+                    APoint = NSPoint(x: rightTopY.x, y: rightTopY.y - autoOffUpHeight + 10.0)
+                    BPoint = NSPoint(x: rightBottomY.x, y: rightBottomY.y + autoOffDownHeight)
+                }
+                
+                ABNodePoint = NSPoint(x: rightBottomY.x + cornerOffWidth, y: (APoint.y + BPoint.y) / 2.0)
+            }
+            break
+        default: //左上
+            if angle == 10.0 || angle == 40.0 {
+                ABNodePoint = NSPoint(x: leftTop.x - cornerOffWidth, y: leftTop.y)
+            } else {
+                if rh <= 30.0 {
+                    autoOffDownHeight = (rh - 2 * radius - 10.0) / 2.0
+                    autoOffUpHeight = autoOffDownHeight
+                    APoint = NSPoint(x: leftTopY.x, y: leftTopY.y - autoOffDownHeight)
+                    BPoint = NSPoint(x: leftBottomY.x, y: leftBottomY.y + autoOffUpHeight)
+                } else {
+                    autoOffUpHeight = (rh - 2 * radius) / 30.0
+                    autoOffUpHeight = autoOffUpHeight > 10.0 ? 10.0 : autoOffUpHeight
+                    autoOffDownHeight = (rh - 2 * radius) - autoOffUpHeight;
+                    APoint = NSPoint(x: leftTopY.x, y: leftTopY.y - autoOffUpHeight)
+                    BPoint = NSPoint(x: leftBottomY.x, y: leftBottomY.y + autoOffDownHeight - 10.0)
+                }
+                
+                ABNodePoint = NSPoint(x: leftTop.x - cornerOffWidth, y: (APoint.y + BPoint.y) / 2.0)
+            }
+            break
+        }
+        
+        
+        let rightTopCenter: NSPoint = NSPoint(x: bubbleRect.maxX - radius, y: bubbleRect.maxY - radius)
+        let leftTopCenter: NSPoint = NSPoint(x: bubbleRect.minX + radius, y: bubbleRect.maxY - radius)
+        let leftBottomCenter: NSPoint = NSPoint(x: bubbleRect.minX + radius, y: bubbleRect.minY + radius)
+        let rightBottomCenter: NSPoint = NSPoint(x: bubbleRect.maxY - radius, y: bubbleRect.minY + radius)
+        
+        // A点引出点的位置
+        let Ax: CGFloat = radius * cos((90.0 - baseAngle - angle) * CGFloat(Double.pi) / 180.0)
+        let Ay: CGFloat = radius * sin((90.0 - baseAngle - angle) * CGFloat(Double.pi) / 180.0)
+        
+        // B点引出点的位置
+        let Bx: CGFloat = radius * cos(baseAngle * CGFloat(Double.pi) / 180.0)
+        let By: CGFloat = radius * sin(baseAngle * CGFloat(Double.pi) / 180.0)
+        
+        // 右下角缺口位置的A,B点坐标
+        let rBottomBPoint: NSPoint = NSPoint(x: rightBottomX.x + By, y: rightBottomY.y - Bx)
+        let rTopBPoint: NSPoint = NSPoint(x: rightTopX.x + Ax, y: rightTopY.y + Ay)
+        let lBottomAPoint: NSPoint = NSPoint(x: leftBottomX.x - Ax, y: leftBottomY.y - Ay)
+        let lTopAPoint: NSPoint = NSPoint(x: leftTopX.x - By, y: leftTopY.y + Bx)
+        
+        
+        switch direction {
+        case 2:
+            bezierPath.move(to: ABNodePoint)
+            if angle != 0.0 {
+                bezierPath.line(to: lBottomAPoint)
+                bezierPath.appendArc(
+                    withCenter: leftBottomCenter,
+                    radius: radius,
+                    startAngle: -(90.0 + baseAngle + angle),
+                    endAngle: 180.0,
+                    clockwise: true)
+            } else {
+                bezierPath.line(to: APoint)
+            }
+            
+            drawLeftTopPart(leftTopCenter, radius, bezierPath)
+            drawRightTopPart(rightTopCenter, radius, bezierPath)
+            drawRightBottomPart(rightBottomCenter, radius, bezierPath)
+            
+            if angle != 0.0 {
+                bezierPath.appendArc(
+                    withCenter: leftBottomCenter,
+                    radius: radius,
+                    startAngle: -90.0,
+                    endAngle: -(90.0 + baseAngle),
+                    clockwise: true)
+            } else {
+                drawLeftBottomPart(leftBottomCenter, radius, bezierPath)
+                bezierPath.line(to: BPoint)
+            }
+            
+            break
+        case 3:
+            bezierPath.move(to: ABNodePoint)
+            if angle != 0.0 {
+                bezierPath.line(to: rTopBPoint)
+                bezierPath.appendArc(
+                    withCenter: rightTopCenter,
+                    radius: radius,
+                    startAngle: (90.0 - baseAngle - angle),
+                    endAngle: 0.0,
+                    clockwise: true)
+            } else {
+                bezierPath.line(to: BPoint)
+            }
+            
+            drawRightBottomPart(rightBottomCenter, radius, bezierPath)
+            drawLeftBottomPart(leftBottomCenter, radius, bezierPath)
+            drawLeftTopPart(leftTopCenter, radius, bezierPath)
+            if angle != 0.0 {
+                bezierPath.appendArc(
+                    withCenter:
+                    rightTopCenter,
+                    radius: radius,
+                    startAngle: 90.0,
+                    endAngle: 90.0 - baseAngle,
+                    clockwise: true)
+            } else {
+                drawRightTopPart(rightTopCenter, radius, bezierPath)
+                bezierPath.line(to: APoint)
+            }
+            
+            break
+        case 4:
+            bezierPath.move(to: ABNodePoint)
+            if angle != 0.0 {
+                bezierPath.line(to: rBottomBPoint)
+                bezierPath.appendArc(
+                withCenter:
+                rightTopCenter,
+                radius: radius,
+                startAngle: -(90.0 - baseAngle),
+                endAngle: -90.0,
+                clockwise: true)
+            } else {
+                bezierPath.line(to: BPoint)
+                drawRightBottomPart(rightBottomCenter, radius, bezierPath)
+            }
+            
+            drawLeftBottomPart(leftBottomCenter, radius, bezierPath)
+            drawLeftTopPart(leftTopCenter, radius, bezierPath)
+            drawRightBottomPart(rightTopCenter, radius, bezierPath)
+            
+            if angle != 0.0 {
+                bezierPath.appendArc(
+                    withCenter: rightBottomCenter,
+                    radius: radius,
+                    startAngle: 0,
+                    endAngle: -(90.0 - baseAngle - angle),
+                    clockwise: true)
+            } else {
+                bezierPath.line(to: APoint)
+            }
+            break
+        default:
+            bezierPath.move(to: ABNodePoint)
+            if angle != 0.0 {
+                bezierPath.line(to: lTopAPoint)
+                bezierPath.appendArc(withCenter: leftTopCenter,
+                                     radius: radius,
+                                     startAngle: 90.0 + baseAngle,
+                                     endAngle: 90.0,
+                                     clockwise: true)
+            } else {
+                bezierPath.line(to: APoint)
+                drawLeftTopPart(leftTopCenter, radius, bezierPath)
+            }
+            
+            drawRightTopPart(rightTopCenter, radius, bezierPath)
+            drawRightBottomPart(rightBottomCenter, radius, bezierPath)
+            drawLeftBottomPart(leftBottomCenter, radius, bezierPath)
+            if angle != 0.0 {
+                bezierPath.appendArc(withCenter: leftTopCenter,
+                                     radius: radius,
+                                     startAngle: 180.0,
+                                     endAngle: (90.0 + baseAngle + angle),
+                                     clockwise: true)
+            } else {
+                bezierPath.line(to: BPoint)
+            }
+            break
+        }
+        
+        bezierPath.close()
+        return bezierPath
     }
+    
+    
+    // 左下半圆
+    func drawLeftBottomPart(_ cornerCenter: NSPoint, _ radius: CGFloat, _ bezierPath: NSBezierPath) -> Void {
+        bezierPath.appendArc(
+            withCenter: cornerCenter,
+            radius: radius,
+            startAngle: -90.0,
+            endAngle: -180.0,
+            clockwise: true)
+    }
+    
+    // 左上半圆
+    func drawLeftTopPart(_ cornerCenter: NSPoint, _ radius: CGFloat, _ bezierPath: NSBezierPath) -> Void {
+        bezierPath.appendArc(
+            withCenter: cornerCenter,
+            radius: radius,
+            startAngle: 180.0,
+            endAngle: 90.0,
+            clockwise: true)
+    }
+    
+    // 右上半圆
+    func drawRightTopPart(_ cornerCenter: NSPoint, _ radius: CGFloat, _ bezierPath: NSBezierPath) -> Void {
+        bezierPath.appendArc(
+            withCenter: cornerCenter,
+            radius: radius,
+            startAngle: 90.0,
+            endAngle: 0.0,
+            clockwise: true)
+    }
+    
+    // 右下半圆
+    func drawRightBottomPart(_ cornerCenter: NSPoint, _ radius: CGFloat, _ bezierPath: NSBezierPath) -> Void {
+        bezierPath.appendArc(
+            withCenter: cornerCenter,
+            radius: radius,
+            startAngle: 0.0,
+            endAngle: 270.0,
+            clockwise: true)
+    }
+    
 }
