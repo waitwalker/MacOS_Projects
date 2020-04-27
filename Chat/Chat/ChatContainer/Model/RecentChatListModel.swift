@@ -9,6 +9,12 @@
 import Cocoa
 import HandyJSON
 
+/*
+ * name: RecentChatListModel
+ * description: 左边最近聊天列表
+ * author: waitwalker
+ * date: 4.25
+ */
 class RecentChatListModel: HandyJSON {
     
     var message: String?
@@ -22,7 +28,12 @@ class RecentChatListModel: HandyJSON {
     }
 }
 
-
+/*
+ * name: RecentChatItemModel
+ * description: 左边最近聊天利特曼
+ * author: waitwalker
+ * date: 4.25
+ */
 class RecentChatItemModel: HandyJSON {
     var user_id: String = "999888001"
     var user_name: String = "python && Golang"

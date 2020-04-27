@@ -29,7 +29,7 @@ class ToolbarContainerView: NSView {
     
     /// 初始化子控件
     /// - Returns: Void
-    func setupSubviews() -> Void {
+    private func setupSubviews() -> Void {
         
         searchContainerView = SearchContainerView()
         searchContainerView.delegate = self

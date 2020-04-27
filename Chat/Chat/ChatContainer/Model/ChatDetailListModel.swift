@@ -9,8 +9,13 @@
 import Cocoa
 import HandyJSON
 
-
-class ChatDetailModel: HandyJSON {
+/*
+ * name: ChatDetailListModel
+ * description: 中间聊天详情列表
+ * author: waitwalker
+ * date: 4.27
+ */
+class ChatDetailListModel: HandyJSON {
     var message: String?
     var code: Int?
     var data: [ChatDetailItemModel]?
@@ -22,6 +27,12 @@ class ChatDetailModel: HandyJSON {
     }
 }
 
+/*
+* name: ChatDetailListModel
+* description: 中间聊天详情item model
+* author: waitwalker
+* date: 4.27
+*/
 class ChatDetailItemModel: HandyJSON {
     var user_id: String = "999888001"
     var user_name: String = "python && Golang"
@@ -34,6 +45,9 @@ class ChatDetailItemModel: HandyJSON {
     
     // 消息类型 1文本 2图片
     var message_type: Int = 1
+    
+    var measage_height: CGFloat = 80.0
+    
     
     required init() {
         

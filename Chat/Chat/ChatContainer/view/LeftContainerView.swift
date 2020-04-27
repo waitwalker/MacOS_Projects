@@ -20,7 +20,6 @@ class LeftContainerView: NSView {
     // 滚动容器
     var scrollView: NSScrollView!
     var tableView: NSTableView!
-    
     var dataSource: RecentChatListModel = RecentChatListModel()
     
     
@@ -31,7 +30,13 @@ class LeftContainerView: NSView {
         setupDataSource()
     }
     
-    func setupDataSource() -> Void {
+    /*
+     * name: setupDataSource
+     * description: 初始化数据源
+     * author: waitwalker
+     * date: 4.26
+     */
+    private func setupDataSource() -> Void {
         AF.request("http://0.0.0.0:7300/mock/5ea0f178bf88582b7376c7a3/api/recentChatList#!method=get", method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil, interceptor: nil
             , requestModifier: nil).responseJSON { (response) in
                 print("response:\(response)")
@@ -50,7 +55,13 @@ class LeftContainerView: NSView {
         }
     }
     
-    func setupSubviews() -> Void {
+    /*
+     * name: setupSubviews
+     * description: 初始化子控件
+     * author: waitwalker
+     * date: 42.6
+     */
+    private func setupSubviews() -> Void {
         scrollView = NSScrollView(frame: self.bounds)
         scrollView.backgroundColor = NSColor.white
         scrollView.hasVerticalScroller = true

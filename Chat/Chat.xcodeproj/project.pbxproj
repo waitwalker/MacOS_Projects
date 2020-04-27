@@ -13,7 +13,7 @@
 		BF292F0A244ED3F300676E51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF292F08244ED3F300676E51 /* Main.storyboard */; };
 		BF292F13244ED4AD00676E51 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF292F12244ED4AD00676E51 /* MainWindowController.swift */; };
 		BF292F18244EDF3100676E51 /* SearchContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF292F17244EDF3100676E51 /* SearchContainerView.swift */; };
-		BF6BB21B24566827005EBCDD /* ChatDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6BB21A24566827005EBCDD /* ChatDetailModel.swift */; };
+		BF6BB21B24566827005EBCDD /* ChatDetailListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6BB21A24566827005EBCDD /* ChatDetailListModel.swift */; };
 		BF7CEB27245162B5000CD4E0 /* NSTextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7CEB26245162B5000CD4E0 /* NSTextFieldExtension.swift */; };
 		BFE1CAE5244FC9E600F55BD3 /* ToolbarContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE1CAE4244FC9E600F55BD3 /* ToolbarContainerView.swift */; };
 		BFE1CAE8244FD1E600F55BD3 /* SearchPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE1CAE6244FD1E600F55BD3 /* SearchPopoverViewController.swift */; };
@@ -46,7 +46,7 @@
 		BF292F0C244ED3F300676E51 /* Chat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Chat.entitlements; sourceTree = "<group>"; };
 		BF292F12244ED4AD00676E51 /* MainWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
 		BF292F17244EDF3100676E51 /* SearchContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchContainerView.swift; sourceTree = "<group>"; };
-		BF6BB21A24566827005EBCDD /* ChatDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDetailModel.swift; sourceTree = "<group>"; };
+		BF6BB21A24566827005EBCDD /* ChatDetailListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDetailListModel.swift; sourceTree = "<group>"; };
 		BF7CEB26245162B5000CD4E0 /* NSTextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSTextFieldExtension.swift; sourceTree = "<group>"; };
 		BFE1CAE4244FC9E600F55BD3 /* ToolbarContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarContainerView.swift; sourceTree = "<group>"; };
 		BFE1CAE6244FD1E600F55BD3 /* SearchPopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPopoverViewController.swift; sourceTree = "<group>"; };
@@ -208,7 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				BFEC0E13245133A00054829C /* RecentChatListModel.swift */,
-				BF6BB21A24566827005EBCDD /* ChatDetailModel.swift */,
+				BF6BB21A24566827005EBCDD /* ChatDetailListModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -356,7 +356,7 @@
 				BF292F13244ED4AD00676E51 /* MainWindowController.swift in Sources */,
 				BFE4F9262452DF6300B88914 /* BubbleContainerView.swift in Sources */,
 				BFE1CB0E2450138C00F55BD3 /* RightContainerView.swift in Sources */,
-				BF6BB21B24566827005EBCDD /* ChatDetailModel.swift in Sources */,
+				BF6BB21B24566827005EBCDD /* ChatDetailListModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

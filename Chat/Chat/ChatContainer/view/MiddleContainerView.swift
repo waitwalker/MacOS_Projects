@@ -40,7 +40,7 @@ class MiddleContainerView: NSView {
     // 中间聊天列表展示
     var scrollView: NSScrollView!
     var tableView: NSTableView!
-    var chatDetailModel: ChatDetailModel = ChatDetailModel()
+    var chatDetailModel: ChatDetailListModel = ChatDetailListModel()
     
     // 底部表情等展示列表
     var bottomContainerView: NSView!
@@ -180,7 +180,7 @@ class MiddleContainerView: NSView {
                 switch response.result {
                 case .success(let json):
                     print("json:\(json)")
-                    self.chatDetailModel = ChatDetailModel.deserialize(from: (json as! Dictionary))!
+                    self.chatDetailModel = ChatDetailListModel.deserialize(from: (json as! Dictionary))!
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
                     }
