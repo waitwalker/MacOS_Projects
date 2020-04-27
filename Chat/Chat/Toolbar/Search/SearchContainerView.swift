@@ -48,10 +48,10 @@ class SearchContainerView: NSView {
         
         imageView = NSImageView()
         imageView.wantsLayer = true
-        imageView.layer?.backgroundColor = NSColor.green.cgColor
+        imageView.image = NSImage(named: "toolbar_search")
         textField.addSubview(imageView)
         imageView.snp.makeConstraints { (make) in
-            make.left.equalTo(5)
+            make.left.equalTo(0)
             make.height.width.equalTo(18)
             make.centerY.equalTo(textField!)
         }
