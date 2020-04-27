@@ -154,7 +154,7 @@ class MiddleContainerView: NSView {
         
         let flowLayOut = NSCollectionViewFlowLayout()
         //flowLayOut.itemSize = CGSize(width: 40, height: 40)
-        flowLayOut.minimumLineSpacing = 20
+        flowLayOut.minimumLineSpacing = 10
         flowLayOut.minimumInteritemSpacing = 10
         flowLayOut.scrollDirection = .horizontal
         bottomCollectionView = NSCollectionView(frame: containerScrollView.bounds)

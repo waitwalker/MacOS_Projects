@@ -18,9 +18,9 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pVY-08-T7Y">
-                    <rect key="frame" x="0.0" y="0.0" width="30" height="19"/>
+                    <rect key="frame" x="0.0" y="0.0" width="20" height="19"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="roundRect" bezelStyle="roundedRect" image="add_new_chat" imagePosition="only" alignment="center" state="on" borderStyle="border" imageScaling="axesIndependently" inset="2" id="FgR-kM-LNc">
+                    <buttonCell key="cell" type="roundRect" bezelStyle="roundedRect" image="add_new_chat" imagePosition="only" alignment="center" state="on" imageScaling="axesIndependently" inset="2" id="FgR-kM-LNc">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="label" size="12"/>
                     </buttonCell>

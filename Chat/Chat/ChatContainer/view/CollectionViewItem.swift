@@ -22,7 +22,16 @@ class CollectionViewItem: NSCollectionViewItem {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.wantsLayer = true
-        self.view.layer?.backgroundColor = NSColor.green.cgColor
+        self.view.layer?.backgroundColor = NSColor.white.cgColor
+        iconButton.snp.makeConstraints { (make) in
+            make.height.width.equalTo(24)
+            make.center.equalTo(self.view)
+        }
+        iconButton.imageScaling = .scaleAxesIndependently
+        iconButton.wantsLayer = true
+        iconButton.layer?.backgroundColor = NSColor.clear.cgColor
+        iconButton.isBordered = false
+        iconButton.bezelStyle = .circular
     }
     
     @IBAction func iconButtonAction(_ sender: NSButton) {
