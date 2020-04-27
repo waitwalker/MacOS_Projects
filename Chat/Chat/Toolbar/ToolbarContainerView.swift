@@ -16,6 +16,8 @@ class ToolbarContainerView: NSView {
 
     var searchContainerView: SearchContainerView!
     var addNewChatButton: NSButton!
+    var middleContainerView: ToolbarMiddleContentView!
+    
     
     
     override init(frame frameRect: NSRect) {
@@ -59,13 +61,14 @@ class ToolbarContainerView: NSView {
             make.centerY.equalTo(searchContainerView)
         }
         
+        middleContainerView = ToolbarMiddleContentView()
+        middleContainerView.wantsLayer = true
+        middleContainerView.layer?.backgroundColor = NSColor.red.cgColor
+        self.addSubview(middleContainerView)
         
-        let button = NSButton(title: "居中", target: self, action: #selector(buttonAction))
-        self.addSubview(button)
-        button.snp.makeConstraints { (make) in
-            make.center.equalTo(self)
-            make.height.equalTo(40)
-            make.width.equalTo(80)
+        middleContainerView.snp.makeConstraints { (make) in
+            make.bottom.top.centerX.equalTo(self)
+            make.width.equalTo(150)
         }
     }
     
