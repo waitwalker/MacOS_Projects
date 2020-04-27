@@ -21,7 +21,7 @@ class ToolbarContainerView: NSView {
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
         self.wantsLayer = true
-        self.layer?.backgroundColor = NSColor.blue.cgColor
+        self.layer?.backgroundColor = NSColor.clear.cgColor
         
         setupSubviews()
     }
@@ -42,9 +42,15 @@ class ToolbarContainerView: NSView {
             make.height.equalTo(20)
         }
         
-        addNewChatButton = NSButton(image: NSImage(named: "add_new_chat")!, target: self, action: #selector(addNewChatAction))
+        addNewChatButton = NSButton(image: NSImage(named: "toolbar_add")!, target: self, action: #selector(addNewChatAction))
         addNewChatButton.wantsLayer = true
         addNewChatButton.layer?.cornerRadius = 10.0
+        addNewChatButton.imageScaling = .scaleAxesIndependently
+        addNewChatButton.wantsLayer = true
+        addNewChatButton.layer?.backgroundColor = NSColor.clear.cgColor
+        addNewChatButton.layer?.borderColor = NSColor.clear.cgColor
+        addNewChatButton.isBordered = false
+        addNewChatButton.bezelStyle = .circular
         self.addSubview(addNewChatButton)
         
         addNewChatButton.snp.makeConstraints { (make) in

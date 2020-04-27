@@ -20,9 +20,6 @@ class MainWindowController: NSWindowController {
     
     //
     private func setupToolbar() -> Void {
-        toolbarView.wantsLayer = true
-        toolbarView.layer?.backgroundColor = NSColor.red.cgColor
-        
         toolbarContainerView = ToolbarContainerView()
         toolbarView.addSubview(toolbarContainerView)
         

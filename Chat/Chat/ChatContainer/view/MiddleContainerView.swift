@@ -157,7 +157,7 @@ class MiddleContainerView: NSView {
         // 底部
         bottomContainerView = NSView(frame: NSRect(x: 2, y: 150, width: self.frame.width - 4, height: 60))
         bottomContainerView.wantsLayer = true
-        bottomContainerView.layer?.backgroundColor = NSColor.red.cgColor
+        bottomContainerView.layer?.backgroundColor = NSColor.white.cgColor
         self.addSubview(bottomContainerView)
         
         containerScrollView = NSScrollView(frame: bottomContainerView.bounds)
