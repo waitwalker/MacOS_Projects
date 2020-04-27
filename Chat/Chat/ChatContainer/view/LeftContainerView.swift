@@ -9,6 +9,10 @@
 import Cocoa
 import Alamofire
 
+protocol LeftContainerViewDelegate {
+    func tapped(_ row: Int, recentItemModel: RecentChatItemModel) -> Void
+}
+
 /*
  * name: LeftContainerView
  * description: 左边的容器
@@ -21,6 +25,8 @@ class LeftContainerView: NSView {
     var scrollView: NSScrollView!
     var tableView: NSTableView!
     var dataSource: RecentChatListModel = RecentChatListModel()
+    
+    var delegate: LeftContainerViewDelegate?
     
     
     
@@ -122,6 +128,14 @@ extension LeftContainerView: NSTableViewDelegate, NSTableViewDataSource {
         return TableRowView()
     }
     
+    func tableView(_ tableView: NSTableView, shouldTrackCell cell: NSCell, for tableColumn: NSTableColumn?, row: Int) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
+        self.delegate?.tapped(row, recentItemModel: self.dataSource.data![row])
+        return true
+    }
 }
 
 /*

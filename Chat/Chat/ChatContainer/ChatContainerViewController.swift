@@ -15,7 +15,6 @@ class ChatContainerViewController: NSViewController {
     var rightContainerView: RightContainerView!
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSubviews()
@@ -23,6 +22,7 @@ class ChatContainerViewController: NSViewController {
     
     func setupSubviews() -> Void {
         leftContainerView = LeftContainerView(frame: NSRect(x: 0, y: 0, width: 960 / 3.5, height: 650))
+        leftContainerView.delegate = self
         self.view.addSubview(leftContainerView)
         
         middleContainerView = MiddleContainerView(frame: NSRect(x: 960 / 3.5, y: 0, width: 440, height: 650))
@@ -33,4 +33,10 @@ class ChatContainerViewController: NSViewController {
         
     }
     
+}
+
+extension ChatContainerViewController: LeftContainerViewDelegate {
+    func tapped(_ row: Int, recentItemModel: RecentChatItemModel) {
+        middleContainerView.recentItemModel = recentItemModel
+    }
 }

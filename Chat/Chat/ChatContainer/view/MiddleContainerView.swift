@@ -54,6 +54,15 @@ class MiddleContainerView: NSView {
     
     
     
+    var recentItemModel: RecentChatItemModel? {
+        didSet {
+            if let model = recentItemModel {
+                nameLabel.stringValue = model.user_name
+            }
+        }
+    }
+    
+    
 
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
