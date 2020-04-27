@@ -83,8 +83,13 @@ class MiddleContainerView: NSView {
         
         // 上部
         topContainerView = NSView(frame: NSRect(x: 2, y: 600, width: self.frame.width - 4, height: 60))
+        
+        let shadow = NSShadow()
+        shadow.shadowColor = NSColor.black
+        shadow.shadowOffset = CGSize(width: 1, height: -1)
+        topContainerView.shadow = shadow
         topContainerView.wantsLayer = true
-        topContainerView.layer?.backgroundColor = NSColor.red.cgColor
+        topContainerView.layer?.backgroundColor = NSColor.white.cgColor
         self.addSubview(topContainerView)
         
         nameLabel = NSTextField(frame: NSRect(x: 10, y: 10, width: 150, height: 40))
@@ -99,11 +104,23 @@ class MiddleContainerView: NSView {
         topContainerView.addSubview(nameLabel)
         
         foldButton = NSButton(image: NSImage(named: "add_new_chat")!, target: self, action: #selector(foldButtonAction))
-        foldButton.frame = NSRect(x: self.frame.width - 50, y: 10, width: 40, height: 40)
+        foldButton.frame = NSRect(x: self.frame.width - 50, y: 10, width: 24, height: 24)
+        foldButton.imageScaling = .scaleAxesIndependently
+        foldButton.wantsLayer = true
+        foldButton.layer?.backgroundColor = NSColor.clear.cgColor
+        foldButton.layer?.borderColor = NSColor.clear.cgColor
+        foldButton.isBordered = false
+        foldButton.bezelStyle = .circular
         topContainerView.addSubview(foldButton)
         
         addGroupUserButton = NSButton(image: NSImage(named: "add_new_chat")!, target: self, action: #selector(addGroupUserButtonAction))
-        addGroupUserButton.frame = NSRect(x: self.frame.width - 100, y: 10, width: 40, height: 40)
+        addGroupUserButton.frame = NSRect(x: self.frame.width - 100, y: 10, width: 24, height: 24)
+        addGroupUserButton.imageScaling = .scaleAxesIndependently
+        addGroupUserButton.wantsLayer = true
+        addGroupUserButton.layer?.backgroundColor = NSColor.clear.cgColor
+        addGroupUserButton.layer?.borderColor = NSColor.clear.cgColor
+        addGroupUserButton.isBordered = false
+        addGroupUserButton.bezelStyle = .circular
         topContainerView.addSubview(addGroupUserButton)
         
         // 中间聊天详情
