@@ -13,6 +13,7 @@
 		BF292F0A244ED3F300676E51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF292F08244ED3F300676E51 /* Main.storyboard */; };
 		BF292F13244ED4AD00676E51 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF292F12244ED4AD00676E51 /* MainWindowController.swift */; };
 		BF292F18244EDF3100676E51 /* SearchContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF292F17244EDF3100676E51 /* SearchContainerView.swift */; };
+		BF6BB21B24566827005EBCDD /* ChatDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6BB21A24566827005EBCDD /* ChatDetailModel.swift */; };
 		BF7CEB27245162B5000CD4E0 /* NSTextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7CEB26245162B5000CD4E0 /* NSTextFieldExtension.swift */; };
 		BFE1CAE5244FC9E600F55BD3 /* ToolbarContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE1CAE4244FC9E600F55BD3 /* ToolbarContainerView.swift */; };
 		BFE1CAE8244FD1E600F55BD3 /* SearchPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE1CAE6244FD1E600F55BD3 /* SearchPopoverViewController.swift */; };
@@ -30,7 +31,7 @@
 		BFE4F92324528D1B00B88914 /* CollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE4F92124528D1B00B88914 /* CollectionViewItem.swift */; };
 		BFE4F92424528D1B00B88914 /* CollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFE4F92224528D1B00B88914 /* CollectionViewItem.xib */; };
 		BFE4F9262452DF6300B88914 /* BubbleContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE4F9252452DF6300B88914 /* BubbleContainerView.swift */; };
-		BFEC0E14245133A00054829C /* RecectChatListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEC0E13245133A00054829C /* RecectChatListModel.swift */; };
+		BFEC0E14245133A00054829C /* RecentChatListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEC0E13245133A00054829C /* RecentChatListModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		BF292F0C244ED3F300676E51 /* Chat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Chat.entitlements; sourceTree = "<group>"; };
 		BF292F12244ED4AD00676E51 /* MainWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
 		BF292F17244EDF3100676E51 /* SearchContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchContainerView.swift; sourceTree = "<group>"; };
+		BF6BB21A24566827005EBCDD /* ChatDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDetailModel.swift; sourceTree = "<group>"; };
 		BF7CEB26245162B5000CD4E0 /* NSTextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSTextFieldExtension.swift; sourceTree = "<group>"; };
 		BFE1CAE4244FC9E600F55BD3 /* ToolbarContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarContainerView.swift; sourceTree = "<group>"; };
 		BFE1CAE6244FD1E600F55BD3 /* SearchPopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPopoverViewController.swift; sourceTree = "<group>"; };
@@ -62,7 +64,7 @@
 		BFE4F92124528D1B00B88914 /* CollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewItem.swift; sourceTree = "<group>"; };
 		BFE4F92224528D1B00B88914 /* CollectionViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewItem.xib; sourceTree = "<group>"; };
 		BFE4F9252452DF6300B88914 /* BubbleContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleContainerView.swift; sourceTree = "<group>"; };
-		BFEC0E13245133A00054829C /* RecectChatListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecectChatListModel.swift; sourceTree = "<group>"; };
+		BFEC0E13245133A00054829C /* RecentChatListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentChatListModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,7 +207,8 @@
 		BFEC0E12245133750054829C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				BFEC0E13245133A00054829C /* RecectChatListModel.swift */,
+				BFEC0E13245133A00054829C /* RecentChatListModel.swift */,
+				BF6BB21A24566827005EBCDD /* ChatDetailModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -348,11 +351,12 @@
 				BFE4F92324528D1B00B88914 /* CollectionViewItem.swift in Sources */,
 				BFE1CAE5244FC9E600F55BD3 /* ToolbarContainerView.swift in Sources */,
 				BF292F18244EDF3100676E51 /* SearchContainerView.swift in Sources */,
-				BFEC0E14245133A00054829C /* RecectChatListModel.swift in Sources */,
+				BFEC0E14245133A00054829C /* RecentChatListModel.swift in Sources */,
 				BFE1CAF0244FDD3500F55BD3 /* AddNewChatViewController.swift in Sources */,
 				BF292F13244ED4AD00676E51 /* MainWindowController.swift in Sources */,
 				BFE4F9262452DF6300B88914 /* BubbleContainerView.swift in Sources */,
 				BFE1CB0E2450138C00F55BD3 /* RightContainerView.swift in Sources */,
+				BF6BB21B24566827005EBCDD /* ChatDetailModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

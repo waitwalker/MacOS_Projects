@@ -1,19 +1,19 @@
 //
-//  RecectChatItemModel.swift
+//  ChatDetailModel.swift
 //  Chat
 //
-//  Created by etiantian on 2020/4/23.
+//  Created by etiantian on 2020/4/27.
 //  Copyright © 2020 etiantian. All rights reserved.
 //
 
 import Cocoa
 import HandyJSON
 
-class RecectChatListModel: HandyJSON {
-    
+
+class ChatDetailModel: HandyJSON {
     var message: String?
     var code: Int?
-    var data: [RecectChatItemModel]?
+    var data: [ChatDetailItemModel]?
     
     
     
@@ -22,14 +22,19 @@ class RecectChatListModel: HandyJSON {
     }
 }
 
-
-class RecectChatItemModel: HandyJSON {
+class ChatDetailItemModel: HandyJSON {
     var user_id: String = "999888001"
     var user_name: String = "python && Golang"
     var header: String = "134"
     var last_chat_time: String = "上午9:50"
     var last_message: String = "小猫咪的爪子: 你说的什么意思呢"
-    var unread_message_count: Int = 12
+    
+    // 用户类型 1其他人 2自己
+    var user_type: Int = 1
+    
+    // 消息类型 1文本 2图片
+    var message_type: Int = 1
+    
     required init() {
         
     }

@@ -21,7 +21,7 @@ class LeftContainerView: NSView {
     var scrollView: NSScrollView!
     var tableView: NSTableView!
     
-    var dataSource: RecectChatListModel = RecectChatListModel()
+    var dataSource: RecentChatListModel = RecentChatListModel()
     
     
     
@@ -38,7 +38,7 @@ class LeftContainerView: NSView {
                 switch response.result {
                 case .success(let json):
                     print("json:\(json)")
-                    self.dataSource = RecectChatListModel.deserialize(from: (json as! Dictionary))!
+                    self.dataSource = RecentChatListModel.deserialize(from: (json as! Dictionary))!
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
                     }
@@ -128,7 +128,7 @@ class RecentChatItemCell: NSView {
     var unreadLabel: NSTextField!
     
     
-    var currentData: RecectChatItemModel? {
+    var currentData: RecentChatItemModel? {
         didSet {
             nameLabel.stringValue = (currentData?.user_name)!
             timeLabel.stringValue = (currentData?.last_chat_time)!
