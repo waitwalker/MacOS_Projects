@@ -16,6 +16,8 @@
 		BF6BB21B24566827005EBCDD /* ChatDetailListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6BB21A24566827005EBCDD /* ChatDetailListModel.swift */; };
 		BF7CEB27245162B5000CD4E0 /* NSTextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7CEB26245162B5000CD4E0 /* NSTextFieldExtension.swift */; };
 		BFB2C4502456769200BB3957 /* BubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB2C44F2456769200BB3957 /* BubbleView.m */; };
+		BFB2C4562456D5C000BB3957 /* NSBottomPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB2C4542456D5C000BB3957 /* NSBottomPopoverViewController.swift */; };
+		BFB2C4572456D5C000BB3957 /* NSBottomPopoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFB2C4552456D5C000BB3957 /* NSBottomPopoverViewController.xib */; };
 		BFE1CAE5244FC9E600F55BD3 /* ToolbarContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE1CAE4244FC9E600F55BD3 /* ToolbarContainerView.swift */; };
 		BFE1CAE8244FD1E600F55BD3 /* SearchPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE1CAE6244FD1E600F55BD3 /* SearchPopoverViewController.swift */; };
 		BFE1CAE9244FD1E600F55BD3 /* SearchPopoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFE1CAE7244FD1E600F55BD3 /* SearchPopoverViewController.xib */; };
@@ -52,6 +54,8 @@
 		BFB2C44D2456769100BB3957 /* Chat-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Chat-Bridging-Header.h"; sourceTree = "<group>"; };
 		BFB2C44E2456769200BB3957 /* BubbleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BubbleView.h; sourceTree = "<group>"; };
 		BFB2C44F2456769200BB3957 /* BubbleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BubbleView.m; sourceTree = "<group>"; };
+		BFB2C4542456D5C000BB3957 /* NSBottomPopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSBottomPopoverViewController.swift; sourceTree = "<group>"; };
+		BFB2C4552456D5C000BB3957 /* NSBottomPopoverViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NSBottomPopoverViewController.xib; sourceTree = "<group>"; };
 		BFE1CAE4244FC9E600F55BD3 /* ToolbarContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarContainerView.swift; sourceTree = "<group>"; };
 		BFE1CAE6244FD1E600F55BD3 /* SearchPopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPopoverViewController.swift; sourceTree = "<group>"; };
 		BFE1CAE7244FD1E600F55BD3 /* SearchPopoverViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchPopoverViewController.xib; sourceTree = "<group>"; };
@@ -150,6 +154,15 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		BFB2C4512456D4DD00BB3957 /* Popover */ = {
+			isa = PBXGroup;
+			children = (
+				BFB2C4542456D5C000BB3957 /* NSBottomPopoverViewController.swift */,
+				BFB2C4552456D5C000BB3957 /* NSBottomPopoverViewController.xib */,
+			);
+			path = Popover;
+			sourceTree = "<group>";
+		};
 		BFE1CAEC244FDCEA00F55BD3 /* Search */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,6 +187,7 @@
 		BFE1CAF7244FF76700F55BD3 /* ChatContainer */ = {
 			isa = PBXGroup;
 			children = (
+				BFB2C4512456D4DD00BB3957 /* Popover */,
 				BFEC0E12245133750054829C /* Model */,
 				BFE1CB0624500FD200F55BD3 /* view */,
 				BFE1CB092450114F00F55BD3 /* ChatContainerViewController.swift */,
@@ -295,6 +309,7 @@
 				BFE4F92424528D1B00B88914 /* CollectionViewItem.xib in Resources */,
 				BFE1CAF1244FDD3500F55BD3 /* AddNewChatViewController.xib in Resources */,
 				BFE1CB05244FF8A000F55BD3 /* DynamicContainerViewController.xib in Resources */,
+				BFB2C4572456D5C000BB3957 /* NSBottomPopoverViewController.xib in Resources */,
 				BFE1CB01244FF89200F55BD3 /* FriendContainerViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -364,6 +379,7 @@
 				BFE1CAF0244FDD3500F55BD3 /* AddNewChatViewController.swift in Sources */,
 				BF292F13244ED4AD00676E51 /* MainWindowController.swift in Sources */,
 				BFE4F9262452DF6300B88914 /* BubbleContainerView.swift in Sources */,
+				BFB2C4562456D5C000BB3957 /* NSBottomPopoverViewController.swift in Sources */,
 				BFE1CB0E2450138C00F55BD3 /* RightContainerView.swift in Sources */,
 				BF6BB21B24566827005EBCDD /* ChatDetailListModel.swift in Sources */,
 			);

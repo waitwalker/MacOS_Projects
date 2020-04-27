@@ -104,7 +104,7 @@ class MiddleContainerView: NSView {
         topContainerView.layer?.backgroundColor = NSColor.white.cgColor
         self.addSubview(topContainerView)
         
-        nameLabel = NSTextField(frame: NSRect(x: 10, y: 10, width: 150, height: 40))
+        nameLabel = NSTextField(frame: NSRect(x: 10, y: 10, width: 250, height: 40))
         nameLabel.stringValue = "python && Golang"
         nameLabel.isEditable = false
         nameLabel.textColor = NSColor.black
