@@ -47,7 +47,7 @@ class ChatDetailItemModel: HandyJSON {
     var message_type: Int = 1
     
     var measage_height: CGFloat = 80.0
-    
+    var cell_height: CGFloat = 80.0
     
     required init() {
         

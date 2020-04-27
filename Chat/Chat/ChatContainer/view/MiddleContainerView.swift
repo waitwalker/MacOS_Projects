@@ -150,7 +150,7 @@ class MiddleContainerView: NSView {
         
         // 聊天输入框
         inputTextView = NSTextView(frame: NSRect(x: 2, y: 0, width: self.bounds.width - 4, height: 150))
-        inputTextView.backgroundColor = NSColor.cyan
+        //inputTextView.backgroundColor = NSColor.cyan
         inputTextView.textColor = NSColor.brown
         inputTextView.font = NSFont.systemFont(ofSize: 20)
         inputTextView.delegate = self
@@ -221,7 +221,8 @@ extension MiddleContainerView: NSTableViewDelegate, NSTableViewDataSource {
     
     
     func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
-        return 60
+        let currentModel = chatDetailModel.data![row]
+        return currentModel.cell_height
     }
     
     func tableView(_ tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {
@@ -314,17 +315,152 @@ extension MiddleContainerView: NSTextViewDelegate {
 */
 class ChatDetailCell: NSView{
     
+    var headerImageView: NSImageView!
+    var nameLabel: NSTextField!
+    var messageContentView: BubbleView!
+    var mesageLabel: NSTextField!
+    var messageImageView: NSImageView!
+    
+    
+    
     var currentData: ChatDetailItemModel? {
         didSet {
-            
+            if let currentModel = currentData {
+                layoutMessageContent(userType: currentModel.user_type, messageContentHeight: currentModel.measage_height)
+                setupMessageValue(currentModel: currentModel)
+            }
         }
     }
-    
     
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
         self.wantsLayer = true
-        self.layer?.backgroundColor = NSColor.lightGray.cgColor
+        self.layer?.backgroundColor = NSColor.green.cgColor
+    }
+    
+    private func layoutMessageContent(userType: Int, messageContentHeight: CGFloat) -> Void {
+        
+        headerImageView = NSImageView()
+        headerImageView.image = NSImage(named: "add_new_chat")
+        headerImageView.wantsLayer = true
+        headerImageView.layer?.cornerRadius = 15
+        self.addSubview(headerImageView)
+        
+        nameLabel = NSTextField()
+        nameLabel.isEditable = false
+        nameLabel.textColor = NSColor.black
+        nameLabel.backgroundColor = NSColor.clear
+        nameLabel.font = NSFont.systemFont(ofSize: 15)
+        nameLabel.sizeToFit()
+        nameLabel.isBordered = false
+        nameLabel.isBezeled = false
+        nameLabel.font = NSFont.systemFont(ofSize: 13)
+        nameLabel.backgroundColor = NSColor.clear
+        self.addSubview(nameLabel)
+        
+        let position: UInt = userType == 1 ? 1 : 3
+        messageContentView = BubbleView(frame: NSRect.zero, position: position)
+        self.addSubview(messageContentView)
+        
+        mesageLabel = NSTextField()
+        mesageLabel.isEditable = false
+        mesageLabel.textColor = NSColor.black
+        mesageLabel.backgroundColor = NSColor.clear
+        mesageLabel.maximumNumberOfLines = 0
+        mesageLabel.isBordered = false
+        mesageLabel.isBezeled = false
+        mesageLabel.sizeToFit()
+        mesageLabel.font = NSFont.systemFont(ofSize: 16)
+        messageContentView.addSubview(mesageLabel)
+        
+        messageImageView = NSImageView()
+        messageImageView.imageScaling = .scaleAxesIndependently
+        messageContentView.addSubview(messageImageView)
+        
+        if position == 1 {
+            headerImageView.snp.makeConstraints { (make) in
+                make.left.equalTo(15)
+                make.height.width.equalTo(30)
+                make.top.equalTo(20)
+            }
+            
+            nameLabel.snp.makeConstraints { (make) in
+                make.left.equalTo(headerImageView.snp.right)
+                make.top.equalTo(headerImageView.snp.top).offset(-10)
+            }
+            
+            messageContentView.snp.makeConstraints { (make) in
+                make.left.equalTo(headerImageView.snp.right)
+                make.top.equalTo(nameLabel.snp.bottom)
+                make.width.equalTo(300)
+                make.height.equalTo(messageContentHeight)
+            }
+
+            mesageLabel.snp.makeConstraints { (make) in
+                make.left.equalTo(messageContentView.snp.left).offset(20)
+                make.top.equalTo(20)
+                make.bottom.right.equalTo(-10)
+            }
+            
+            messageImageView.snp.makeConstraints { (make) in
+                make.left.equalTo(messageContentView.snp.left).offset(20)
+                make.top.equalTo(messageContentView.snp.top).offset(10)
+                make.bottom.right.equalTo(-10)
+            }
+        } else {
+            headerImageView.snp.makeConstraints { (make) in
+                make.right.equalTo(-15)
+                make.height.width.equalTo(30)
+                make.top.equalTo(20)
+            }
+            
+            nameLabel.snp.makeConstraints { (make) in
+                make.right.equalTo(headerImageView.snp.left)
+                make.bottom.equalTo(headerImageView.snp.top).offset(10)
+            }
+            
+            messageContentView.snp.makeConstraints { (make) in
+                make.right.equalTo(nameLabel.snp.left)
+                make.top.equalTo(10)
+                make.width.equalTo(300)
+                make.height.equalTo(messageContentHeight)
+            }
+            
+            mesageLabel.snp.makeConstraints { (make) in
+                make.left.equalTo(messageContentView.snp.left).offset(10)
+                make.top.equalTo(20)
+                make.bottom.right.equalTo(-10)
+            }
+            
+            messageImageView.snp.makeConstraints { (make) in
+                make.left.equalTo(messageContentView.snp.left).offset(10)
+                make.top.equalTo(messageContentView.snp.top).offset(20)
+                make.bottom.right.equalTo(-10)
+            }
+        }
+    }
+    
+    private func setupMessageValue(currentModel: ChatDetailItemModel) -> Void {
+
+        headerImageView.image = NSImage(named: currentModel.header)
+        
+        if currentModel.message_type == 1 {
+            mesageLabel.isHidden = false
+            messageImageView.isHidden = true
+            mesageLabel.stringValue = currentModel.last_message
+        } else {
+            mesageLabel.isHidden = true
+            messageImageView.isHidden = false
+            messageImageView.image = NSImage(named: currentModel.last_message)
+        }
+        
+        if currentModel.user_type == 1 {
+            nameLabel.stringValue = currentModel.user_name
+            nameLabel.alignment = NSTextAlignment.left
+        } else {
+            nameLabel.stringValue = "我"
+            nameLabel.alignment = NSTextAlignment.right
+        }
     }
     
     required init?(coder: NSCoder) {

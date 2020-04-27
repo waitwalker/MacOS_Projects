@@ -155,7 +155,7 @@ class RecentChatItemCell: NSView {
         setupSubviews()
     }
     
-    func setupSubviews() -> Void {
+    private func setupSubviews() -> Void {
         headerImageView = NSImageView()
         headerImageView.image = NSImage(named: "add_new_chat")
         headerImageView.wantsLayer = true

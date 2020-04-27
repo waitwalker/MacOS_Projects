@@ -30,7 +30,7 @@ class BubbleContainerView: NSView {
     
     public func draw(position: UInt) -> Void {
         var bezierPath: NSBezierPath = NSBezierPath()
-        bezierPath = makeBubble(bezierPath, NSRect(x: 0, y: 0.0, width: self.bounds.size.width - 10.0, height: self.bounds.size.height - 10.0), 8.0, position)
+        bezierPath = makeBubble(bezierPath, NSRect(x: 10, y: 0.0, width: self.bounds.size.width - 10.0, height: self.bounds.size.height - 10.0), 8.0, position)
         NSColor.gray.withAlphaComponent(0.3).set()
         bezierPath.fill()
         NSColor.green.set()

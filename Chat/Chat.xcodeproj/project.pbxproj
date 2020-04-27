@@ -15,6 +15,7 @@
 		BF292F18244EDF3100676E51 /* SearchContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF292F17244EDF3100676E51 /* SearchContainerView.swift */; };
 		BF6BB21B24566827005EBCDD /* ChatDetailListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6BB21A24566827005EBCDD /* ChatDetailListModel.swift */; };
 		BF7CEB27245162B5000CD4E0 /* NSTextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7CEB26245162B5000CD4E0 /* NSTextFieldExtension.swift */; };
+		BFB2C4502456769200BB3957 /* BubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB2C44F2456769200BB3957 /* BubbleView.m */; };
 		BFE1CAE5244FC9E600F55BD3 /* ToolbarContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE1CAE4244FC9E600F55BD3 /* ToolbarContainerView.swift */; };
 		BFE1CAE8244FD1E600F55BD3 /* SearchPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE1CAE6244FD1E600F55BD3 /* SearchPopoverViewController.swift */; };
 		BFE1CAE9244FD1E600F55BD3 /* SearchPopoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFE1CAE7244FD1E600F55BD3 /* SearchPopoverViewController.xib */; };
@@ -48,6 +49,9 @@
 		BF292F17244EDF3100676E51 /* SearchContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchContainerView.swift; sourceTree = "<group>"; };
 		BF6BB21A24566827005EBCDD /* ChatDetailListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDetailListModel.swift; sourceTree = "<group>"; };
 		BF7CEB26245162B5000CD4E0 /* NSTextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSTextFieldExtension.swift; sourceTree = "<group>"; };
+		BFB2C44D2456769100BB3957 /* Chat-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Chat-Bridging-Header.h"; sourceTree = "<group>"; };
+		BFB2C44E2456769200BB3957 /* BubbleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BubbleView.h; sourceTree = "<group>"; };
+		BFB2C44F2456769200BB3957 /* BubbleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BubbleView.m; sourceTree = "<group>"; };
 		BFE1CAE4244FC9E600F55BD3 /* ToolbarContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarContainerView.swift; sourceTree = "<group>"; };
 		BFE1CAE6244FD1E600F55BD3 /* SearchPopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPopoverViewController.swift; sourceTree = "<group>"; };
 		BFE1CAE7244FD1E600F55BD3 /* SearchPopoverViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchPopoverViewController.xib; sourceTree = "<group>"; };
@@ -139,6 +143,9 @@
 			children = (
 				BF7CEB26245162B5000CD4E0 /* NSTextFieldExtension.swift */,
 				BFE4F9252452DF6300B88914 /* BubbleContainerView.swift */,
+				BFB2C44E2456769200BB3957 /* BubbleView.h */,
+				BFB2C44F2456769200BB3957 /* BubbleView.m */,
+				BFB2C44D2456769100BB3957 /* Chat-Bridging-Header.h */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -255,6 +262,7 @@
 				TargetAttributes = {
 					BF292EFE244ED3F100676E51 = {
 						CreatedOnToolsVersion = 11.4;
+						LastSwiftMigration = 1140;
 					};
 				};
 			};
@@ -350,6 +358,7 @@
 				BFE1CB04244FF8A000F55BD3 /* DynamicContainerViewController.swift in Sources */,
 				BFE4F92324528D1B00B88914 /* CollectionViewItem.swift in Sources */,
 				BFE1CAE5244FC9E600F55BD3 /* ToolbarContainerView.swift in Sources */,
+				BFB2C4502456769200BB3957 /* BubbleView.m in Sources */,
 				BF292F18244EDF3100676E51 /* SearchContainerView.swift in Sources */,
 				BFEC0E14245133A00054829C /* RecentChatListModel.swift in Sources */,
 				BFE1CAF0244FDD3500F55BD3 /* AddNewChatViewController.swift in Sources */,
@@ -492,6 +501,7 @@
 			baseConfigurationReference = 1D1805A154FAFAB80FC5D698 /* Pods-Chat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Chat/Chat.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -504,6 +514,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.etiantian.Chat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Chat/Extension/Chat-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -513,6 +525,7 @@
 			baseConfigurationReference = 412D853FF1A90F9140AA0CE6 /* Pods-Chat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Chat/Chat.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -525,6 +538,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.etiantian.Chat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Chat/Extension/Chat-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
