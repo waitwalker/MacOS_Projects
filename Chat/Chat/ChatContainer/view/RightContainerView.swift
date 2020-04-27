@@ -21,7 +21,7 @@ class RightContainerView: NSView {
     }
     
     func setupSubviews() -> Void {
-        bubbleView = BubbleContainerView(frame: NSRect(x: 100, y: 100, width: 100, height: 100), position: 1)
+        bubbleView = BubbleContainerView(frame: NSRect(x: 100, y: 100, width: 100, height: 100), position: 3)
         self.addSubview(bubbleView)
     }
     

@@ -30,7 +30,7 @@ class BubbleContainerView: NSView {
     
     public func draw(position: UInt) -> Void {
         var bezierPath: NSBezierPath = NSBezierPath()
-        bezierPath = makeBubble(bezierPath, NSRect(x: 10, y: 10.0, width: self.bounds.size.width - 10.0, height: self.bounds.size.height - 10.0), 8.0, position)
+        bezierPath = makeBubble(bezierPath, NSRect(x: 0, y: 0.0, width: self.bounds.size.width - 10.0, height: self.bounds.size.height - 10.0), 8.0, position)
         NSColor.gray.withAlphaComponent(0.3).set()
         bezierPath.fill()
         NSColor.green.set()
@@ -84,7 +84,7 @@ class BubbleContainerView: NSView {
         let leftTopY: NSPoint = NSPoint(x: leftTop.x, y: leftTop.y - radius)
         
         // 最小高度在30以下,只需要在左或右画即可
-        if minDiameter < 30 {
+        if minDiameter < 30.0 {
             if rate > 0.33 && rate <= 0.5 {
                 angle = 40.0
             } else {
@@ -165,7 +165,7 @@ class BubbleContainerView: NSView {
                     BPoint = NSPoint(x: rightBottomY.x, y: rightBottomY.y + autoOffDownHeight)
                 } else {
                     autoOffDownHeight = (rh - 2 * radius) / 30.0
-                    autoOffDownHeight = autoOffUpHeight > 10.0 ? 10.0 : autoOffDownHeight
+                    autoOffDownHeight = autoOffDownHeight > 10.0 ? 10.0 : autoOffDownHeight
                     autoOffUpHeight = (rh - 2 * radius) - autoOffDownHeight;
                     APoint = NSPoint(x: rightTopY.x, y: rightTopY.y - autoOffUpHeight + 10.0)
                     BPoint = NSPoint(x: rightBottomY.x, y: rightBottomY.y + autoOffDownHeight)
