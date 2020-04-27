@@ -224,6 +224,10 @@ extension MiddleContainerView: NSTableViewDelegate, NSTableViewDataSource {
         return 60
     }
     
+    func tableView(_ tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {
+        return ChatDetailTableRowView()
+    }
+    
 }
 
 /*
@@ -325,5 +329,23 @@ class ChatDetailCell: NSView{
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+
+/*
+ * name: TableRowView
+ * description: cell 选中背景色重写
+ * author: waitwalker
+ * date: 4.24
+ */
+class ChatDetailTableRowView: NSTableRowView {
+    override func drawSelection(in dirtyRect: NSRect) {
+        if self.selectionHighlightStyle != .none {
+            let selectRect = NSInsetRect(self.bounds, 0, 0)
+            NSColor.clear.setFill()
+            let selectionPath = NSBezierPath(roundedRect: selectRect, xRadius: 0, yRadius: 0)
+            selectionPath.fill()
+        }
     }
 }
