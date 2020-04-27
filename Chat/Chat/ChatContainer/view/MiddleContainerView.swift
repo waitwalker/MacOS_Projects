@@ -108,7 +108,7 @@ class MiddleContainerView: NSView {
         
         // 中间聊天详情
         scrollView = NSScrollView(frame: NSRect(x: 2, y: 200, width: self.frame.width - 4, height: 400))
-        scrollView.backgroundColor = NSColor.yellow
+        scrollView.hasHorizontalScroller = false
         scrollView.hasVerticalScroller = true
         self.addSubview(scrollView)
         
@@ -335,7 +335,7 @@ class ChatDetailCell: NSView{
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
         self.wantsLayer = true
-        self.layer?.backgroundColor = NSColor.green.cgColor
+        self.layer?.backgroundColor = NSColor.white.cgColor
     }
     
     private func layoutMessageContent(userType: Int, messageContentHeight: CGFloat) -> Void {
