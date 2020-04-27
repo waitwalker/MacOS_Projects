@@ -103,7 +103,7 @@ class MiddleContainerView: NSView {
         nameLabel.isBezeled = false
         topContainerView.addSubview(nameLabel)
         
-        foldButton = NSButton(image: NSImage(named: "add_new_chat")!, target: self, action: #selector(foldButtonAction))
+        foldButton = NSButton(image: NSImage(named: "chat_detail_folder")!, target: self, action: #selector(foldButtonAction))
         foldButton.frame = NSRect(x: self.frame.width - 50, y: 10, width: 24, height: 24)
         foldButton.imageScaling = .scaleAxesIndependently
         foldButton.wantsLayer = true
@@ -113,8 +113,8 @@ class MiddleContainerView: NSView {
         foldButton.bezelStyle = .circular
         topContainerView.addSubview(foldButton)
         
-        addGroupUserButton = NSButton(image: NSImage(named: "add_new_chat")!, target: self, action: #selector(addGroupUserButtonAction))
-        addGroupUserButton.frame = NSRect(x: self.frame.width - 100, y: 10, width: 24, height: 24)
+        addGroupUserButton = NSButton(image: NSImage(named: "chat_detail_add_user")!, target: self, action: #selector(addGroupUserButtonAction))
+        addGroupUserButton.frame = NSRect(x: self.frame.width - 85, y: 13, width: 20, height: 20)
         addGroupUserButton.imageScaling = .scaleAxesIndependently
         addGroupUserButton.wantsLayer = true
         addGroupUserButton.layer?.backgroundColor = NSColor.clear.cgColor
