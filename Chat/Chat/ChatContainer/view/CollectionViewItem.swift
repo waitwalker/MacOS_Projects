@@ -16,6 +16,16 @@ class CollectionViewItem: NSCollectionViewItem {
             
         }
     }
+    
+    var currentDataSource: [String: String]? {
+        didSet {
+            if let dataSource = currentDataSource {
+                iconButton.image = NSImage(named: dataSource["image"]!)
+            }
+        }
+    }
+    
+    
     var delegate: CollectionViewItemDelegate?
     
     

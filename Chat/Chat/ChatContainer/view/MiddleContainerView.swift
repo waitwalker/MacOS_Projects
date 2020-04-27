@@ -46,6 +46,8 @@ class MiddleContainerView: NSView {
     var bottomContainerView: NSView!
     var containerScrollView: NSScrollView!
     var bottomCollectionView: NSCollectionView!
+    var dataSource:[[String:String]] = []
+    
     
     // 聊天输入框
     var inputTextView: NSTextView!
@@ -57,6 +59,7 @@ class MiddleContainerView: NSView {
         super.init(frame: frameRect)
         setupSubviews()
         setupDataSource()
+        setupCollectionViewDataSource()
     }
     
     required init?(coder: NSCoder) {
@@ -209,6 +212,21 @@ class MiddleContainerView: NSView {
         }
     }
     
+    // 设置collection view 数据源
+    private func setupCollectionViewDataSource() -> Void {
+        dataSource = [
+            ["image":"bottom_emoji"],
+            ["image":"bottom_screenshot"],
+            ["image":"bottom_folder"],
+            ["image":"bottom_office"],
+            ["image":"bottom_phone"],
+            ["image":"bottom_time"],
+            ["image":"bottom_message"],
+            ["image":"bottom_font"],
+        ]
+        self.bottomCollectionView.reloadData()
+    }
+    
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
     }
@@ -256,12 +274,13 @@ extension MiddleContainerView: NSTableViewDelegate, NSTableViewDataSource {
  */
 extension MiddleContainerView: NSCollectionViewDataSource, NSCollectionViewDelegate, NSCollectionViewDelegateFlowLayout, CollectionViewItemDelegate {
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 8
+        return dataSource.count
     }
     
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
         let item = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier.reusedBottomItemId, for: indexPath) as! CollectionViewItem
         item.currentIndexPath = indexPath
+        item.currentDataSource = dataSource[indexPath.item]
         item.delegate = self
         return item
     }
