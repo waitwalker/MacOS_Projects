@@ -18,6 +18,7 @@
 		BFB2C4502456769200BB3957 /* BubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB2C44F2456769200BB3957 /* BubbleView.m */; };
 		BFB2C4562456D5C000BB3957 /* NSBottomPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB2C4542456D5C000BB3957 /* NSBottomPopoverViewController.swift */; };
 		BFB2C4572456D5C000BB3957 /* NSBottomPopoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFB2C4552456D5C000BB3957 /* NSBottomPopoverViewController.xib */; };
+		BFB2C45B2456DBCC00BB3957 /* ToolbarMiddleContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB2C45A2456DBCC00BB3957 /* ToolbarMiddleContentView.swift */; };
 		BFE1CAE5244FC9E600F55BD3 /* ToolbarContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE1CAE4244FC9E600F55BD3 /* ToolbarContainerView.swift */; };
 		BFE1CAE8244FD1E600F55BD3 /* SearchPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE1CAE6244FD1E600F55BD3 /* SearchPopoverViewController.swift */; };
 		BFE1CAE9244FD1E600F55BD3 /* SearchPopoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFE1CAE7244FD1E600F55BD3 /* SearchPopoverViewController.xib */; };
@@ -56,6 +57,7 @@
 		BFB2C44F2456769200BB3957 /* BubbleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BubbleView.m; sourceTree = "<group>"; };
 		BFB2C4542456D5C000BB3957 /* NSBottomPopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSBottomPopoverViewController.swift; sourceTree = "<group>"; };
 		BFB2C4552456D5C000BB3957 /* NSBottomPopoverViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NSBottomPopoverViewController.xib; sourceTree = "<group>"; };
+		BFB2C45A2456DBCC00BB3957 /* ToolbarMiddleContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarMiddleContentView.swift; sourceTree = "<group>"; };
 		BFE1CAE4244FC9E600F55BD3 /* ToolbarContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarContainerView.swift; sourceTree = "<group>"; };
 		BFE1CAE6244FD1E600F55BD3 /* SearchPopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPopoverViewController.swift; sourceTree = "<group>"; };
 		BFE1CAE7244FD1E600F55BD3 /* SearchPopoverViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchPopoverViewController.xib; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				BFE1CAE4244FC9E600F55BD3 /* ToolbarContainerView.swift */,
+				BFB2C45A2456DBCC00BB3957 /* ToolbarMiddleContentView.swift */,
 			);
 			path = Toolbar;
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 				BFE1CB00244FF89200F55BD3 /* FriendContainerViewController.swift in Sources */,
 				BF292F03244ED3F100676E51 /* AppDelegate.swift in Sources */,
 				BFE1CB0A2450114F00F55BD3 /* ChatContainerViewController.swift in Sources */,
+				BFB2C45B2456DBCC00BB3957 /* ToolbarMiddleContentView.swift in Sources */,
 				BFE1CB0824500FF600F55BD3 /* LeftContainerView.swift in Sources */,
 				BFE1CAE8244FD1E600F55BD3 /* SearchPopoverViewController.swift in Sources */,
 				BFE1CB04244FF8A000F55BD3 /* DynamicContainerViewController.swift in Sources */,
