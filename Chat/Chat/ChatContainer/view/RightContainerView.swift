@@ -103,6 +103,24 @@ class RightContainerView: NSView {
             make.top.equalTo(10)
             make.width.equalTo(100)
         }
+        
+        searchImageView = NSImageView(image: NSImage(named: "user_search")!)
+        mContainerView.addSubview(searchImageView)
+        
+        searchImageView.snp.makeConstraints { (make) in
+            make.right.equalTo(-10)
+            make.height.width.equalTo(16)
+            make.top.equalTo(10)
+        }
+        
+        bContainerView = NSView()
+        bContainerView.wantsLayer = true
+        bContainerView.layer?.backgroundColor = NSColor.yellow.withAlphaComponent(0.2).cgColor
+        self.addSubview(bContainerView)
+        bContainerView.snp.makeConstraints { (make) in
+            make.bottom.left.right.equalTo(0)
+            make.top.equalTo(mContainerView.snp.bottom)
+        }
     }
     
     required init?(coder: NSCoder) {
