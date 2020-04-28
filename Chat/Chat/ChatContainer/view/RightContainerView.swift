@@ -119,11 +119,10 @@ class RightContainerView: NSView {
         
         bContainerView = NSView(frame: NSRect(x: 0, y: 0, width: self.bounds.width, height: 305))
         bContainerView.wantsLayer = true
-        bContainerView.layer?.backgroundColor = NSColor.yellow.withAlphaComponent(0.2).cgColor
         self.addSubview(bContainerView)
         
         scrollView = NSScrollView(frame: bContainerView.bounds)
-        scrollView.backgroundColor = NSColor.green
+        scrollView.backgroundColor = NSColor.clear
         bContainerView.addSubview(scrollView)
         
         let column = NSTableColumn(identifier: NSUserInterfaceItemIdentifier.init(rawValue: "chat_column"))

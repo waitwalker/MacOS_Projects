@@ -179,8 +179,8 @@ class MiddleContainerView: NSView {
         
         // 聊天输入框
         inputTextView = NSTextView(frame: NSRect(x: 2, y: 0, width: self.bounds.width - 4, height: 150))
-        //inputTextView.backgroundColor = NSColor.cyan
-        inputTextView.textColor = NSColor.brown
+        inputTextView.backgroundColor = NSColor.white.withAlphaComponent(0.7)
+        inputTextView.textColor = NSColor.white
         inputTextView.font = NSFont.systemFont(ofSize: 20)
         inputTextView.delegate = self
         self.addSubview(inputTextView)
