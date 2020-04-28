@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import Alamofire
 
 /*
  * name: RightContainerView
@@ -26,7 +27,7 @@ class RightContainerView: NSView {
     var bContainerView: NSView!
     var scrollView: NSScrollView!
     var tableView: NSTableView!
-    
+    var dataSource: RecentChatListModel = RecentChatListModel()
     
     
     
@@ -37,6 +38,7 @@ class RightContainerView: NSView {
         self.wantsLayer = true
         self.layer?.backgroundColor = NSColor(red: 244 / 255.0, green: 246 / 255.0, blue: 248 / 255.0, alpha: 1.0).cgColor
         setupSubviews()
+        setupDataSource()
     }
     
     // 初始化子控件
@@ -123,6 +125,44 @@ class RightContainerView: NSView {
         scrollView = NSScrollView(frame: bContainerView.bounds)
         scrollView.backgroundColor = NSColor.green
         bContainerView.addSubview(scrollView)
+        
+        let column = NSTableColumn(identifier: NSUserInterfaceItemIdentifier.init(rawValue: "chat_column"))
+        column.title = "最近聊天"
+        column.width = self.frame.width
+        tableView = NSTableView(frame: scrollView.frame)
+        tableView.addTableColumn(column)
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.backgroundColor = NSColor.white
+        // 去掉header
+        tableView.headerView = nil
+        scrollView.documentView = tableView
+        
+    }
+    
+    /*
+     * name: setupDataSource
+     * description: 初始化数据源
+     * author: waitwalker
+     * date: 4.26
+     */
+    private func setupDataSource() -> Void {
+        AF.request("http://0.0.0.0:7300/mock/5ea0f178bf88582b7376c7a3/api/userList#!method=get", method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil, interceptor: nil
+            , requestModifier: nil).responseJSON { (response) in
+                print("response:\(response)")
+                switch response.result {
+                case .success(let json):
+                    print("json:\(json)")
+                    self.dataSource = RecentChatListModel.deserialize(from: (json as! Dictionary))!
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                    break
+                case .failure(let error):
+                    print("recent chat list error:\(error)")
+                    break
+                }
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -135,4 +175,142 @@ class RightContainerView: NSView {
         // Drawing code here.
     }
     
+}
+
+/*
+ * name:
+ * description: table view 代理 && 数据源
+ * author: waitwalker
+ * date: 4.24
+ */
+extension RightContainerView: NSTableViewDelegate, NSTableViewDataSource {
+    func numberOfRows(in tableView: NSTableView) -> Int {
+        return dataSource.data == nil ? 0 : (dataSource.data?.count)!
+    }
+    
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        var cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "cellId"), owner: self)
+        if cell == nil {
+            cell = UserItemCell(frame: NSRect(x: 0, y: 0, width:960, height: 60))
+            cell!.identifier = NSUserInterfaceItemIdentifier(rawValue: "cellId")
+        }
+        (cell as! UserItemCell).currentData = dataSource.data?[row]
+        return cell
+    }
+    
+    
+    func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
+        return 30
+    }
+    
+    func tableView(_ tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {
+        return UserTableRowView()
+    }
+    
+    func tableView(_ tableView: NSTableView, shouldTrackCell cell: NSCell, for tableColumn: NSTableColumn?, row: Int) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
+        return true
+    }
+}
+
+/*
+ * name: UserItemCell
+ * description: 最近聊天列表 cell 封装
+ * author: waitwalker
+ * date: 4.24
+ */
+class UserItemCell: NSView {
+    
+    var headerImageView: NSImageView!
+    var nameLabel: NSTextField!
+    var adminImageView: NSImageView!
+    
+    var currentData: RecentChatItemModel? {
+        didSet {
+            if let model = currentData {
+                nameLabel.stringValue = model.user_name
+                headerImageView.image = NSImage(named: model.header)
+                if model.admin == 0 {
+                    adminImageView.isHidden = true
+                } else {
+                    adminImageView.isHidden = false
+                    if model.admin == 1 {
+                        adminImageView.image = NSImage(named: "admin_1")!
+                    } else {
+                        adminImageView.image = NSImage(named: "admin_2")!
+                    }
+                }
+            }
+        }
+    }
+    
+    
+    override init(frame frameRect: NSRect) {
+        super.init(frame: frameRect)
+        setupSubviews()
+    }
+    
+    private func setupSubviews() -> Void {
+        headerImageView = NSImageView()
+        headerImageView.image = NSImage(named: "add_new_chat")
+        headerImageView.wantsLayer = true
+        headerImageView.layer?.cornerRadius = 10
+        self.addSubview(headerImageView)
+        
+        headerImageView.snp.makeConstraints { (make) in
+            make.left.equalTo(15)
+            make.height.width.equalTo(20)
+            make.centerY.equalTo(self)
+        }
+        
+        nameLabel = NSTextField()
+        nameLabel.isEditable = false
+        nameLabel.textColor = NSColor.black
+        nameLabel.backgroundColor = NSColor.clear
+        nameLabel.font = NSFont.systemFont(ofSize: 15)
+        nameLabel.sizeToFit()
+        nameLabel.isBordered = false
+        nameLabel.isBezeled = false
+        self.addSubview(nameLabel)
+        nameLabel.snp.makeConstraints { (make) in
+            make.left.equalTo(headerImageView.snp.right).offset(10)
+            make.top.equalTo(headerImageView.snp.top)
+        }
+        
+        adminImageView = NSImageView()
+        adminImageView.wantsLayer = true
+        self.addSubview(adminImageView)
+        
+        adminImageView.snp.makeConstraints { (make) in
+            make.right.equalTo(-10)
+            make.height.width.equalTo(10)
+            make.centerY.equalTo(self)
+        }
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+}
+
+/*
+ * name: UserTableRowView
+ * description: cell 选中背景色重写
+ * author: waitwalker
+ * date: 4.24
+ */
+class UserTableRowView: NSTableRowView {
+    override func drawSelection(in dirtyRect: NSRect) {
+        if self.selectionHighlightStyle != .none {
+            let selectRect = NSInsetRect(self.bounds, 0, 0)
+            NSColor.gray.withAlphaComponent(0.2).setFill()
+            let selectionPath = NSBezierPath(roundedRect: selectRect, xRadius: 0, yRadius: 0)
+            selectionPath.fill()
+        }
+    }
 }

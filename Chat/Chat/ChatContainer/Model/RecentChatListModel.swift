@@ -41,6 +41,8 @@ class RecentChatItemModel: HandyJSON {
     var last_chat_time: String = "上午9:50"
     var last_message: String = "小猫咪的爪子: 你说的什么意思呢"
     var unread_message_count: Int = 12
+    var admin: Int = 0
+    
     required init() {
         
     }
