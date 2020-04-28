@@ -45,7 +45,7 @@ class ToolbarMiddleContentView: NSView {
             make.center.equalTo(self)
         }
         
-        chatButton = NSButton(image: NSImage(named: "toolbar_chat_normal")!, target: self, action: #selector(chatButtonAction(button:)))
+        chatButton = NSButton(image: NSImage(named: "toolbar_chat_selected")!, target: self, action: #selector(chatButtonAction(button:)))
         chatButton.wantsLayer = true
         chatButton.layer?.backgroundColor = NSColor.clear.cgColor
         chatButton.layer?.borderColor = NSColor.clear.cgColor
@@ -73,15 +73,21 @@ class ToolbarMiddleContentView: NSView {
     }
     
     @objc func chatButtonAction(button: NSButton) -> Void {
-        
+        chatButton.image = NSImage(named: "toolbar_chat_selected")!
+        userButton.image = NSImage(named: "toolbar_user_normal")!
+        windowButton.image = NSImage(named: "toolbar_window_normal")!
     }
     
     @objc func userButtonAction(button: NSButton) -> Void {
-        
+        chatButton.image = NSImage(named: "toolbar_chat_normal")!
+        userButton.image = NSImage(named: "toolbar_user_selected")!
+        windowButton.image = NSImage(named: "toolbar_window_normal")!
     }
     
     @objc func windowButtonAction(button: NSButton) -> Void {
-        
+        chatButton.image = NSImage(named: "toolbar_chat_normal")!
+        userButton.image = NSImage(named: "toolbar_user_normal")!
+        windowButton.image = NSImage(named: "toolbar_window_selected")!
     }
     
     required init?(coder: NSCoder) {
