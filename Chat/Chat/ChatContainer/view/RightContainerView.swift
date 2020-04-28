@@ -19,12 +19,21 @@ class RightContainerView: NSView {
     var rightArrowImageView: NSImageView!
     var publishContentLabel: NSTextField!
     
+    var mContainerView: NSView!
+    var userCountLabel: NSTextField!
+    var searchImageView: NSImageView!
+    
+    
+    
+    var bContainerView: NSView!
+    
+    
     
     
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
         self.wantsLayer = true
-        self.layer?.backgroundColor = NSColor.white.cgColor
+        self.layer?.backgroundColor = NSColor(red: 244 / 255.0, green: 246 / 255.0, blue: 248 / 255.0, alpha: 1.0).cgColor
         setupSubviews()
     }
     
@@ -68,6 +77,31 @@ class RightContainerView: NSView {
             make.left.equalTo(20)
             make.top.equalTo(40)
             make.right.equalTo(-10)
+        }
+        
+        mContainerView = NSView()
+        mContainerView.wantsLayer = true
+        mContainerView.layer?.backgroundColor = NSColor.lightGray.withAlphaComponent(0.2).cgColor
+        self.addSubview(mContainerView)
+        mContainerView.snp.makeConstraints { (make) in
+            make.left.right.equalTo(0)
+            make.center.equalTo(self)
+            make.height.equalTo(40)
+        }
+        
+        userCountLabel = NSTextField()
+        userCountLabel.isEditable = false
+        userCountLabel.backgroundColor = NSColor.clear
+        userCountLabel.textColor = NSColor.black
+        userCountLabel.isBordered = false
+        userCountLabel.isBezeled = false
+        userCountLabel.stringValue = "成员  280/500"
+        mContainerView.addSubview(userCountLabel)
+        
+        userCountLabel.snp.makeConstraints { (make) in
+            make.left.equalTo(20)
+            make.top.equalTo(10)
+            make.width.equalTo(100)
         }
     }
     
