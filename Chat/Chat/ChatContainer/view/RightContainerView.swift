@@ -23,9 +23,11 @@ class RightContainerView: NSView {
     var userCountLabel: NSTextField!
     var searchImageView: NSImageView!
     
-    
-    
     var bContainerView: NSView!
+    var scrollView: NSScrollView!
+    var tableView: NSTableView!
+    
+    
     
     
     
@@ -113,14 +115,14 @@ class RightContainerView: NSView {
             make.top.equalTo(10)
         }
         
-        bContainerView = NSView()
+        bContainerView = NSView(frame: NSRect(x: 0, y: 0, width: self.bounds.width, height: 305))
         bContainerView.wantsLayer = true
         bContainerView.layer?.backgroundColor = NSColor.yellow.withAlphaComponent(0.2).cgColor
         self.addSubview(bContainerView)
-        bContainerView.snp.makeConstraints { (make) in
-            make.bottom.left.right.equalTo(0)
-            make.top.equalTo(mContainerView.snp.bottom)
-        }
+        
+        scrollView = NSScrollView(frame: bContainerView.bounds)
+        scrollView.backgroundColor = NSColor.green
+        bContainerView.addSubview(scrollView)
     }
     
     required init?(coder: NSCoder) {
