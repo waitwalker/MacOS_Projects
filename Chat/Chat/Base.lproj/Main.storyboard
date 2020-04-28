@@ -721,7 +721,7 @@
             <objects>
                 <viewController storyboardIdentifier="ChatViewController" id="XfG-lQ-9wD" customClass="ChatContainerViewController" customModule="Chat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="950" height="550"/>
+                        <rect key="frame" x="0.0" y="0.0" width="960" height="650"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </view>
                 </viewController>

@@ -15,6 +15,8 @@
 		BF292F18244EDF3100676E51 /* SearchContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF292F17244EDF3100676E51 /* SearchContainerView.swift */; };
 		BF6BB21B24566827005EBCDD /* ChatDetailListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6BB21A24566827005EBCDD /* ChatDetailListModel.swift */; };
 		BF7CEB27245162B5000CD4E0 /* NSTextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7CEB26245162B5000CD4E0 /* NSTextFieldExtension.swift */; };
+		BF8257F22457FE2E001D2CF9 /* UserLeftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8257F12457FE2E001D2CF9 /* UserLeftView.swift */; };
+		BF8257F424580487001D2CF9 /* UserRightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8257F324580487001D2CF9 /* UserRightView.swift */; };
 		BFB2C4502456769200BB3957 /* BubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB2C44F2456769200BB3957 /* BubbleView.m */; };
 		BFB2C4562456D5C000BB3957 /* NSBottomPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB2C4542456D5C000BB3957 /* NSBottomPopoverViewController.swift */; };
 		BFB2C4572456D5C000BB3957 /* NSBottomPopoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFB2C4552456D5C000BB3957 /* NSBottomPopoverViewController.xib */; };
@@ -52,6 +54,8 @@
 		BF292F17244EDF3100676E51 /* SearchContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchContainerView.swift; sourceTree = "<group>"; };
 		BF6BB21A24566827005EBCDD /* ChatDetailListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDetailListModel.swift; sourceTree = "<group>"; };
 		BF7CEB26245162B5000CD4E0 /* NSTextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSTextFieldExtension.swift; sourceTree = "<group>"; };
+		BF8257F12457FE2E001D2CF9 /* UserLeftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLeftView.swift; sourceTree = "<group>"; };
+		BF8257F324580487001D2CF9 /* UserRightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRightView.swift; sourceTree = "<group>"; };
 		BFB2C44D2456769100BB3957 /* Chat-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Chat-Bridging-Header.h"; sourceTree = "<group>"; };
 		BFB2C44E2456769200BB3957 /* BubbleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BubbleView.h; sourceTree = "<group>"; };
 		BFB2C44F2456769200BB3957 /* BubbleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BubbleView.m; sourceTree = "<group>"; };
@@ -157,6 +161,15 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		BF8257F02457FE0A001D2CF9 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				BF8257F12457FE2E001D2CF9 /* UserLeftView.swift */,
+				BF8257F324580487001D2CF9 /* UserRightView.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
 		BFB2C4512456D4DD00BB3957 /* Popover */ = {
 			isa = PBXGroup;
 			children = (
@@ -201,6 +214,7 @@
 		BFE1CAF8244FF81B00F55BD3 /* Friend */ = {
 			isa = PBXGroup;
 			children = (
+				BF8257F02457FE0A001D2CF9 /* view */,
 				BFE1CAFE244FF89200F55BD3 /* FriendContainerViewController.swift */,
 				BFE1CAFF244FF89200F55BD3 /* FriendContainerViewController.xib */,
 			);
@@ -368,6 +382,7 @@
 			files = (
 				BF7CEB27245162B5000CD4E0 /* NSTextFieldExtension.swift in Sources */,
 				BFE1CB0C2450137800F55BD3 /* MiddleContainerView.swift in Sources */,
+				BF8257F424580487001D2CF9 /* UserRightView.swift in Sources */,
 				BFE1CB00244FF89200F55BD3 /* FriendContainerViewController.swift in Sources */,
 				BF292F03244ED3F100676E51 /* AppDelegate.swift in Sources */,
 				BFE1CB0A2450114F00F55BD3 /* ChatContainerViewController.swift in Sources */,
@@ -378,6 +393,7 @@
 				BFE4F92324528D1B00B88914 /* CollectionViewItem.swift in Sources */,
 				BFE1CAE5244FC9E600F55BD3 /* ToolbarContainerView.swift in Sources */,
 				BFB2C4502456769200BB3957 /* BubbleView.m in Sources */,
+				BF8257F22457FE2E001D2CF9 /* UserLeftView.swift in Sources */,
 				BF292F18244EDF3100676E51 /* SearchContainerView.swift in Sources */,
 				BFEC0E14245133A00054829C /* RecentChatListModel.swift in Sources */,
 				BFE1CAF0244FDD3500F55BD3 /* AddNewChatViewController.swift in Sources */,
