@@ -72,22 +72,32 @@ class ToolbarMiddleContentView: NSView {
         }
     }
     
+    // chat按钮 action call back
     @objc func chatButtonAction(button: NSButton) -> Void {
         chatButton.image = NSImage(named: "toolbar_chat_selected")!
         userButton.image = NSImage(named: "toolbar_user_normal")!
         windowButton.image = NSImage(named: "toolbar_window_normal")!
+        
+        let storyBoard = NSStoryboard(name: "Main", bundle: nil)
+        let chatViewController: ChatContainerViewController = storyBoard.instantiateController(identifier: NSStoryboard.SceneIdentifier("ChatViewController")) as ChatContainerViewController
+        NSApplication.shared.mainWindow?.contentViewController = chatViewController
     }
     
+    // user按钮 action call back
     @objc func userButtonAction(button: NSButton) -> Void {
         chatButton.image = NSImage(named: "toolbar_chat_normal")!
         userButton.image = NSImage(named: "toolbar_user_selected")!
         windowButton.image = NSImage(named: "toolbar_window_normal")!
+        NSApplication.shared.mainWindow?.contentViewController = FriendContainerViewController()
     }
     
+    // window按钮 action call back
     @objc func windowButtonAction(button: NSButton) -> Void {
         chatButton.image = NSImage(named: "toolbar_chat_normal")!
         userButton.image = NSImage(named: "toolbar_user_normal")!
         windowButton.image = NSImage(named: "toolbar_window_selected")!
+        
+        NSApplication.shared.mainWindow?.contentViewController = DynamicContainerViewController()
     }
     
     required init?(coder: NSCoder) {

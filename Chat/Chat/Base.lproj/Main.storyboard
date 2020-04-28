@@ -719,7 +719,7 @@
         <!--Chat Container View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ChatContainerViewController" customModule="Chat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChatViewController" id="XfG-lQ-9wD" customClass="ChatContainerViewController" customModule="Chat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="950" height="550"/>
                         <autoresizingMask key="autoresizingMask"/>
