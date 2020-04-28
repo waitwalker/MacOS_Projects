@@ -224,14 +224,14 @@ class MiddleContainerView: NSView {
     // 设置collection view 数据源
     private func setupCollectionViewDataSource() -> Void {
         dataSource = [
-            ["image":"bottom_emoji"],
-            ["image":"bottom_screenshot"],
-            ["image":"bottom_folder"],
-            ["image":"bottom_office"],
-            ["image":"bottom_phone"],
-            ["image":"bottom_time"],
-            ["image":"bottom_message"],
-            ["image":"bottom_font"],
+            ["image": "bottom_emoji"],
+            ["image": "bottom_screenshot"],
+            ["image": "bottom_folder"],
+            ["image": "bottom_office"],
+            ["image": "bottom_phone"],
+            ["image": "bottom_time"],
+            ["image": "bottom_message"],
+            ["image": "bottom_font"],
         ]
         self.bottomCollectionView.reloadData()
     }

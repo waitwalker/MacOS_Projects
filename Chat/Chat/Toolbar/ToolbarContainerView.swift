@@ -62,8 +62,6 @@ class ToolbarContainerView: NSView {
         }
         
         middleContainerView = ToolbarMiddleContentView()
-        middleContainerView.wantsLayer = true
-        middleContainerView.layer?.backgroundColor = NSColor.red.cgColor
         self.addSubview(middleContainerView)
         
         middleContainerView.snp.makeConstraints { (make) in
